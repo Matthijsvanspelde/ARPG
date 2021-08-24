@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour
 {
     private NavMeshAgent agent;
     [SerializeField]
-    private float stoppingDistance = 0.5f;
+    private float stoppingDistance = 0.8f;
     [SerializeField]
     PlayerStatsScriptableObject playerData;
     private GameObject target;
