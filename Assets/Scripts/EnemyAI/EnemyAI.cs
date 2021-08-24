@@ -58,7 +58,16 @@ public class EnemyAI : MonoBehaviour
     private void Attack()
     {
         agent.stoppingDistance = stoppingDistance;
-        agent.destination = fov.visibleTargets[0].transform.position;        
+        if (fov.visibleTargets.Count > 0)
+        {
+            agent.destination = fov.visibleTargets[0].transform.position;
+        }
+        else
+        {
+            isWandering = true;
+            isAttacking = false;
+        }
+          
     }
 
     private static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
