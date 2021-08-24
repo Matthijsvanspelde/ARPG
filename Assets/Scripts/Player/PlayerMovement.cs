@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Ground"))
             {
+                agent.stoppingDistance = 0;
                 agent.destination = hit.point;
             }
         }
