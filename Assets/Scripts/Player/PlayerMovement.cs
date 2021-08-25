@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SetMoveDirection();
         Move();
     }
 
@@ -36,6 +37,19 @@ public class PlayerMovement : MonoBehaviour
         if (agent.velocity.magnitude == 0)
         {
             animator.SetBool("isWalking", false);
+        }
+    }
+
+    private void SetMoveDirection()
+    {
+        float velocity = agent.destination.x - transform.position.x;
+        if (velocity > 0f)
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
+        else if (velocity < 0f)
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
         }
     }
 

@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5397b2c0f00935744b507eb225954a5c, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  attackSpeed: 4
+  health: 20
+  mana: 10
+  stamina: 10
+  attackSpeed: 1
+  baseAttackDamage: 4

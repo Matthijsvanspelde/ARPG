@@ -13,11 +13,13 @@ public class PlayerAttack : MonoBehaviour
     private GameObject target;
     private float attackTimer = 0f;
     private bool hasClicked = false;
+    private Animator animator;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();   
     }
 
@@ -36,7 +38,8 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetMouseButton(0))
         {           
             if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Enemy"))
-            {                
+            {
+                animator.SetBool("isWalking", true);
                 target = hit.transform.gameObject;
                 agent.stoppingDistance = stoppingDistance;
                 agent.destination = hit.point;
@@ -53,9 +56,9 @@ public class PlayerAttack : MonoBehaviour
     {
         if (IsAtTarget() && attackTimer <= 0 && hasClicked)
         {
-            hasClicked = false;           
-            target.GetComponent<EnemyController>().health -= playerData.baseAttackDamage;
-            Debug.Log(target.GetComponent<EnemyController>().health);
+            hasClicked = false;
+            target.GetComponent<EnemyAI>().TakeDamage(playerData.baseAttackDamage);
+            animator.SetTrigger("swing");
             attackTimer = playerData.attackSpeed;            
         }
     }
