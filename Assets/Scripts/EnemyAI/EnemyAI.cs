@@ -5,20 +5,33 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    [Header("Stats")]
     public int health = 8;
+    [SerializeField]
+    private int attackSpeed = 2;
+    [SerializeField]
+    private int attackDamage = 2;
+
+    [Header("AI")]
     public float wanderRadius;
     public float wanderTimer;
-    private NavMeshAgent agent;
+    [SerializeField]
+    private float stoppingDistance = 0.8f;
     private float timer;
+    private float attackTimer = 0f;
+
+    private NavMeshAgent agent;   
     private EnemyFieldOfView fov;
     private Animator animator;
 
-    [SerializeField]
-    private float stoppingDistance = 0.8f;
-
+    //States
     private bool isWandering = true;
     private bool isAttacking = false;
     private bool isDead = false;
+
+    [SerializeField]
+    PlayerStatsScriptableObject playerData;
+
     // Use this for initialization
     void OnEnable()
     {
@@ -33,6 +46,7 @@ public class EnemyAI : MonoBehaviour
     {
         SetAnimationState();
         SetMoveDirection();
+        SwingTimer();
         if (isWandering)
         {
             Wander();
@@ -72,7 +86,21 @@ public class EnemyAI : MonoBehaviour
         {
             isWandering = true;
             isAttacking = false;
-        }         
+        }
+        if (IsAtTarget() && isAttacking && attackTimer <= 0)
+        {
+            attackTimer = attackSpeed;
+            playerData.health -= attackDamage;
+            animator.SetTrigger("attack");
+        }
+    }
+
+    private void SwingTimer()
+    {
+        if (attackTimer > 0)
+        {
+            attackTimer -= Time.deltaTime;
+        }
     }
 
     private void SetAnimationState() 
@@ -124,4 +152,17 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+
+    private bool IsAtTarget()
+    {
+        if (fov.visibleTargets.Count > 0)
+        {
+            float dist = Vector3.Distance(fov.visibleTargets[0].transform.position, transform.position);
+            if (dist <= 1.5f)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
