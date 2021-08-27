@@ -6,8 +6,9 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [Header("Stats")]
-    public int health = 8;
+    public int health;
     [SerializeField]
+    public int maxHealth = 8;   
     private int attackSpeed = 2;
     [SerializeField]
     private int attackDamage = 2;
@@ -19,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     private float stoppingDistance = 0.8f;
     private float timer;
     private float attackTimer = 0f;
+    public HealthBar healthBar;
 
     private NavMeshAgent agent;   
     private EnemyFieldOfView fov;
@@ -27,10 +29,15 @@ public class EnemyAI : MonoBehaviour
     //States
     private bool isWandering = true;
     private bool isAttacking = false;
-    private bool isDead = false;
+    public bool isDead = false;
 
     [SerializeField]
     PlayerStatsScriptableObject playerData;
+
+    private void Start()
+    {
+        health = maxHealth;
+    }
 
     // Use this for initialization
     void OnEnable()
@@ -118,7 +125,7 @@ public class EnemyAI : MonoBehaviour
     public void TakeDamage(int damage) 
     {
         health -= damage;
-        Debug.Log(health);
+        SetHealthBar();
         if (health <= 0)
         {
             isWandering = false;
@@ -128,6 +135,12 @@ public class EnemyAI : MonoBehaviour
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
         }
+    }
+
+    public void SetHealthBar() 
+    {
+        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(health);
     }
 
     private static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
@@ -158,7 +171,7 @@ public class EnemyAI : MonoBehaviour
         if (fov.visibleTargets.Count > 0)
         {
             float dist = Vector3.Distance(fov.visibleTargets[0].transform.position, transform.position);
-            if (dist <= 1.5f)
+            if (dist <= stoppingDistance)
             {
                 return true;
             }

@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608695a5de9573741868281ac110039a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 5
+  viewRadius: 6
   targetMask:
     serializedVersion: 2
     m_Bits: 64
@@ -396,11 +396,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 8
-  attackSpeed: 2
+  maxHealth: 8
   attackDamage: 2
   wanderRadius: 8
   wanderTimer: 4
-  stoppingDistance: 1.2
+  stoppingDistance: 1.5
+  healthBar: {fileID: 0}
+  isDead: 0
   playerData: {fileID: 11400000, guid: ddee05a44e0d13246ad91c9c4aebce58, type: 2}
 --- !u!1 &4052306421782089453
 GameObject:

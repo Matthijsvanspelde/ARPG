@@ -9,11 +9,12 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private float stoppingDistance = 0.8f;
     [SerializeField]
-    PlayerStatsScriptableObject playerData;
+    PlayerStatsScriptableObject playerData;    
     private GameObject target;
     private float attackTimer = 0f;
     private bool hasClicked = false;
     private Animator animator;
+    private EnemyAI enemyAI;
     
 
     // Start is called before the first frame update
@@ -28,7 +29,8 @@ public class PlayerAttack : MonoBehaviour
     {
         TargetEnemy();
         SwingTimer();
-        Attack();       
+        Attack();
+        WalkToTarget();
     }
 
     private void TargetEnemy() 
@@ -41,14 +43,29 @@ public class PlayerAttack : MonoBehaviour
             {
                 animator.SetBool("isWalking", true);
                 target = hit.transform.gameObject;
-                agent.stoppingDistance = stoppingDistance;
-                agent.destination = hit.point;
+                enemyAI = hit.transform.gameObject.GetComponent<EnemyAI>();
+                agent.stoppingDistance = stoppingDistance;               
                 hasClicked = true;
+                enemyAI.SetHealthBar();
+                enemyAI.healthBar.SetNameTag(target.name);
+                enemyAI.healthBar.SetActive(true);
             }
             else 
             {
+                if (target != null)
+                {
+                    enemyAI.healthBar.SetActive(false);
+                }               
                 target = null;
             }
+        }
+    }
+
+    private void WalkToTarget() 
+    {
+        if (target != null)
+        {
+            agent.destination = target.transform.position;
         }
     }
 
@@ -57,9 +74,13 @@ public class PlayerAttack : MonoBehaviour
         if (IsAtTarget() && attackTimer <= 0 && hasClicked)
         {
             hasClicked = false;
-            target.GetComponent<EnemyAI>().TakeDamage(playerData.baseAttackDamage);
+            enemyAI.TakeDamage(playerData.baseAttackDamage);
             animator.SetTrigger("swing");
-            attackTimer = playerData.attackSpeed;            
+            attackTimer = playerData.attackSpeed;
+            if (enemyAI.isDead)
+            {
+                enemyAI.healthBar.SetActive(false);
+            }                     
         }
     }
 
@@ -76,7 +97,7 @@ public class PlayerAttack : MonoBehaviour
         if (target != null)
         {
             float dist = Vector3.Distance(target.transform.position, transform.position);
-            if (dist <= 1.5f)
+            if (dist <= stoppingDistance)
             {
                 return true;
             }
