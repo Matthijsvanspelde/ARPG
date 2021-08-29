@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 3790484493534102409}
   - component: {fileID: 3790484493534102423}
   - component: {fileID: 1975518961}
+  - component: {fileID: 842972330}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -310,8 +311,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.1989043, z: 0.3823619}
-  m_Center: {x: 0, y: 0.59945214, z: 0.0050456524}
+  m_Size: {x: 1, y: 1.9994768, z: 0.3823619}
+  m_Center: {x: 0, y: 0.4997384, z: 0.0050456524}
 --- !u!54 &3790484493534102414
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -404,6 +405,25 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   isDead: 0
   playerData: {fileID: 11400000, guid: ddee05a44e0d13246ad91c9c4aebce58, type: 2}
+--- !u!114 &842972330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3790484493534102415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821093cd295dc714b9ba63b0e4957aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootTable:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  minGoldDrop: 0
+  maxGoldDrop: 10
 --- !u!1 &4052306421782089453
 GameObject:
   m_ObjectHideFlags: 0

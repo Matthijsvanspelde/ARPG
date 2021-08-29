@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour
     private float timer;
     private float attackTimer = 0f;
     public HealthBar healthBar;
+    private Loot loot;
 
     private NavMeshAgent agent;   
     private EnemyFieldOfView fov;
@@ -45,6 +46,7 @@ public class EnemyAI : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         fov = GetComponent<EnemyFieldOfView>();
+        loot = GetComponent<Loot>();
         timer = wanderTimer;
     }
 
@@ -132,6 +134,7 @@ public class EnemyAI : MonoBehaviour
             isAttacking = false;
             isDead = true;
             animator.SetTrigger("dead");
+            loot.DropLoot();
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
         }
