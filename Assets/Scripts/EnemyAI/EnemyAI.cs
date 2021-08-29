@@ -135,6 +135,7 @@ public class EnemyAI : MonoBehaviour
             isDead = true;
             animator.SetTrigger("dead");
             loot.DropLoot();
+            loot.DropGold();
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
         }

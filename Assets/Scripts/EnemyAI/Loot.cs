@@ -9,6 +9,8 @@ public class Loot : MonoBehaviour
     private int minGoldDrop = 0;
     [SerializeField]
     private int maxGoldDrop = 10;
+    [SerializeField]
+    private GameObject goldPrefab;
 
     public void DropLoot() 
     {
@@ -20,5 +22,12 @@ public class Loot : MonoBehaviour
                 Debug.Log(item.name);
             }
         }       
+    }
+
+    public void DropGold() 
+    {       
+        int goldAmount = Random.Range(minGoldDrop, maxGoldDrop);
+        GameObject goldObject = Instantiate(goldPrefab, transform);
+        goldObject.GetComponent<Gold>().goldAmount = goldAmount;
     }
 }

@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
-{
-    [SerializeField]
-    private int gold;
+{    
     [SerializeField]
     List<Slot> slots = new List<Slot>();
     [SerializeField]
     private GameObject inventoryPanel;
     private GameObject selectedItem = null;
     private bool isToggled;
-
+    public int gold;
+    [SerializeField]
+    private TMP_Text goldText;
     public bool IsToggled { get => isToggled; private set => isToggled = value; }
 
     void Start()
@@ -68,5 +69,10 @@ public class Inventory : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void UpdateGoldText() 
+    {
+        goldText.text = gold.ToString();
     }
 }
