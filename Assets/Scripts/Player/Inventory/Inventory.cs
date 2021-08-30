@@ -9,7 +9,6 @@ public class Inventory : MonoBehaviour
     List<Slot> slots = new List<Slot>();
     [SerializeField]
     private GameObject inventoryPanel;
-    private GameObject selectedItem = null;
     private bool isToggled;
     public int gold;
     [SerializeField]
@@ -45,7 +44,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void AddItem()
+    public void AddItem(GameObject selectedItem)
     {
         foreach (var slot in slots)
         {

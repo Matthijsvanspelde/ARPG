@@ -27,6 +27,7 @@ public class Slot : MonoBehaviour
     {
         if (itemIcon != null)
         {
+            icon.preserveAspect = true;
             icon.sprite = itemIcon;
         }
         else
