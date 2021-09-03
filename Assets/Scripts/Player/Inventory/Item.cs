@@ -5,7 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField]
-    private bool canBeStacked;
+    public int stackSize;
     [SerializeField]
     private Sprite icon;
     [SerializeField]
@@ -14,8 +14,7 @@ public class Item : MonoBehaviour
     public int dropChance;
     public ItemScriptableObject itemPrefab;
     
-
-    public bool CanBeStacked { get => canBeStacked; private set => canBeStacked = value; }
+    public int StackSize { get => stackSize; private set => stackSize = value; }
     public Sprite Icon { get => icon; private set => icon = value; }
     public ItemEnum ItemCategory { get => itemCategory; private set => itemCategory = value; }
 }

@@ -50,7 +50,7 @@ public class Inventory : MonoBehaviour
         {
             if (slot.Items.Count > 0 && slot.Items[0].name == selectedItem.name)
             {
-                if (slot.Items[0].GetComponent<Item>().CanBeStacked && selectedItem.GetComponent<Item>().CanBeStacked)
+                if (slot.Items[0].GetComponent<Item>().stackSize > slot.Items.Count && selectedItem.GetComponent<Item>().stackSize > slot.Items.Count)
                 {
                     slot.Items.Add(selectedItem);
                     slot.UpdateCountText();

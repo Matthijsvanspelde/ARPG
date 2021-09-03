@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac16bbd0166f644cbf73606324d99ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeStacked: 1
+  stackSize: 3
   icon: {fileID: -3898193829316545274, guid: 50b9b1e997d12184abb438ad7151b7a9, type: 3}
   itemCategory: 0
   dropChance: 20

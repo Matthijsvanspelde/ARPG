@@ -18,6 +18,7 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
         Slot draggedFromSlot = eventData.pointerDrag.GetComponentInParent<Slot>();
         if (slot.Items.Count == 0)
         {
+            Debug.Log("Add");
             // Add items to new list
             slot.Items = draggedFromSlot.Items.ToList();
             slot.UpdateCountText();
@@ -31,8 +32,13 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
         }
         else if (slot.Items.Count > 0)
         {
-            if (slot.Items[0].name == draggedFromSlot.Items[0].name && slot.Items[0].GetComponent<Item>().CanBeStacked && draggedFromSlot.Items[0].GetComponent<Item>().CanBeStacked) // Are the items from both slots the same item? Then stack them.
+            // Are the items from both slots the same item? Then stack them.
+            if (slot.Items[0].name == draggedFromSlot.Items[0].name 
+                && slot.Items.Count < slot.Items[0].GetComponent<Item>().StackSize 
+                && draggedFromSlot.Items.Count < draggedFromSlot.Items[0].GetComponent<Item>().StackSize
+                && !slot.Items[0] == draggedFromSlot.Items[0])
             {
+                Debug.Log("Stack");
                 foreach (var item in draggedFromSlot.Items.ToList())
                 {
                     // Add the items to new list
@@ -47,6 +53,7 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
             }
             else // Is the slot already occupied? Then swap items.
             {
+                Debug.Log("Swap");
                 // Cache items from first list to put in the second list
                 List<GameObject> itemsSecondList = new List<GameObject>();
                 itemsSecondList = slot.Items.ToList();
