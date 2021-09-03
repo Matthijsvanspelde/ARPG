@@ -34,7 +34,9 @@ public class PickUp : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Item"))
             {
                 Debug.Log(hit.transform.gameObject.name);
-                inventory.AddItem(hit.transform.gameObject);
+                GameObject item = hit.transform.gameObject.GetComponent<Item>().itemPrefab.item;
+                inventory.AddItem(item);
+                Destroy(hit.transform.gameObject);
             }
         }
     }

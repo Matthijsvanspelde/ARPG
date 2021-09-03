@@ -31,7 +31,7 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
         }
         else if (slot.Items.Count > 0)
         {
-            if (slot.Items[0].name == draggedFromSlot.Items[0].name) // Are the items from both slots the same item? Then stack them.
+            if (slot.Items[0].name == draggedFromSlot.Items[0].name && slot.Items[0].GetComponent<Item>().CanBeStacked && draggedFromSlot.Items[0].GetComponent<Item>().CanBeStacked) // Are the items from both slots the same item? Then stack them.
             {
                 foreach (var item in draggedFromSlot.Items.ToList())
                 {

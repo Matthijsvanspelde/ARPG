@@ -12,6 +12,8 @@ public class Item : MonoBehaviour
     private ItemEnum itemCategory;
     [Range(0, 100)]
     public int dropChance;
+    public ItemScriptableObject itemPrefab;
+    
 
     public bool CanBeStacked { get => canBeStacked; private set => canBeStacked = value; }
     public Sprite Icon { get => icon; private set => icon = value; }
