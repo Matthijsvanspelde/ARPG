@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Player sprite library
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: RightLeg
+    m_Hash: -2042820100
+    m_CategoryList:
+    - m_Name: Empty
+      m_Hash: -1459219776
+      m_Sprite: {fileID: 1325897933596039879, guid: 1785e5492ac6e8541a577eea8eb6dba7, type: 3}
+    - m_Name: Pants
+      m_Hash: -1111633170
+      m_Sprite: {fileID: 8523120992353735522, guid: 272c7d57bb04c59429f063009bf2fec6, type: 3}
+  - m_Name: LeftLeg
+    m_Hash: 101577729
+    m_CategoryList:
+    - m_Name: Empty
+      m_Hash: -1459219776
+      m_Sprite: {fileID: 4749695854933513881, guid: 1785e5492ac6e8541a577eea8eb6dba7, type: 3}
+    - m_Name: Pants
+      m_Hash: -1111633170
+      m_Sprite: {fileID: 5886019991954742400, guid: 272c7d57bb04c59429f063009bf2fec6, type: 3}
+  - m_Name: Pelvis
+    m_Hash: -1339949736
+    m_CategoryList:
+    - m_Name: Empty
+      m_Hash: -1459219776
+      m_Sprite: {fileID: -6065341290569164207, guid: 1785e5492ac6e8541a577eea8eb6dba7, type: 3}
+    - m_Name: Belt
+      m_Hash: -1067067409
+      m_Sprite: {fileID: -9222415682989662078, guid: 272c7d57bb04c59429f063009bf2fec6, type: 3}
+  - m_Name: Chest
+    m_Hash: 981834931
+    m_CategoryList:
+    - m_Name: Empty
+      m_Hash: -1459219776
+      m_Sprite: {fileID: -3223173861256406081, guid: 1785e5492ac6e8541a577eea8eb6dba7, type: 3}
+    - m_Name: Shirt
+      m_Hash: 1248117524
+      m_Sprite: {fileID: -6804783369595722440, guid: 272c7d57bb04c59429f063009bf2fec6, type: 3}
+  - m_Name: RightFoot
+    m_Hash: -1693174228
+    m_CategoryList:
+    - m_Name: Empty
+      m_Hash: -1459219776
+      m_Sprite: {fileID: 3682237927794634723, guid: 1785e5492ac6e8541a577eea8eb6dba7, type: 3}
+    - m_Name: Boots
+      m_Hash: 1182796552
+      m_Sprite: {fileID: 7452897950898515540, guid: 272c7d57bb04c59429f063009bf2fec6, type: 3}
+  - m_Name: LeftFoot
+    m_Hash: 1486391408
+    m_CategoryList:
+    - m_Name: Empty
+      m_Hash: -1459219776
+      m_Sprite: {fileID: 6392235649151686743, guid: 1785e5492ac6e8541a577eea8eb6dba7, type: 3}
+    - m_Name: Boots
+      m_Hash: 1182796552
+      m_Sprite: {fileID: -786705157902220909, guid: 272c7d57bb04c59429f063009bf2fec6, type: 3}
