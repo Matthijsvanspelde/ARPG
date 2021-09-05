@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 704841337706069016}
   - component: {fileID: 5986650386319000370}
   - component: {fileID: 2608203919307236704}
+  - component: {fileID: 3663576323978842119}
   m_Layer: 0
   m_Name: Leather
   m_TagString: Item
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac16bbd0166f644cbf73606324d99ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackSize: 16
+  stackSize: 3
   icon: {fileID: -3898193829316545274, guid: 50b9b1e997d12184abb438ad7151b7a9, type: 3}
   itemCategory: 0
   dropChance: 20
@@ -69,7 +70,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b2e07bf4f1016104f8cbc48c1767d45b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,3 +115,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.671, y: 1.087, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3663576323978842119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699644748323004957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8b40b6a10a86a47874d3bb18cddb1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
