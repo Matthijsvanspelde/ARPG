@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButton(0))
         {
-            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Ground"))
+            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Ground") && !EventSystem.current.IsPointerOverGameObject())
             {
                 animator.SetBool("isWalking", true);
                 agent.stoppingDistance = 0;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -39,16 +40,20 @@ public class PlayerAttack : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButton(0))
         {           
-            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Enemy"))
+            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Enemy") && !EventSystem.current.IsPointerOverGameObject())
             {
                 animator.SetBool("isWalking", true);
                 target = hit.transform.gameObject;
                 enemyAI = hit.transform.gameObject.GetComponent<EnemyAI>();
-                agent.stoppingDistance = stoppingDistance;               
-                hasClicked = true;
+                agent.stoppingDistance = stoppingDistance;
+                
                 enemyAI.SetHealthBar();
                 enemyAI.healthBar.SetNameTag(target.name);
                 enemyAI.healthBar.SetActive(true);
+                if (attackTimer <= 0)
+                {
+                    hasClicked = true;
+                }
             }
             else 
             {
@@ -58,6 +63,13 @@ public class PlayerAttack : MonoBehaviour
                 }               
                 target = null;
             }
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Enemy"))
+            {
+                hasClicked = true;
+            }            
         }
     }
 
@@ -71,8 +83,10 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack() 
     {
+        
         if (IsAtTarget() && attackTimer <= 0 && hasClicked)
         {
+            Debug.Log(hasClicked);
             hasClicked = false;
             enemyAI.TakeDamage(playerData.baseAttackDamage);
             animator.SetTrigger("swing");
