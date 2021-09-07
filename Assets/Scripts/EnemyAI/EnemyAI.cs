@@ -63,8 +63,7 @@ public class EnemyAI : MonoBehaviour
         else if (isAttacking)
         {
             Attack();
-        }
-        
+        }      
     }
 
     private void Wander()
@@ -130,10 +129,10 @@ public class EnemyAI : MonoBehaviour
         SetHealthBar();
         if (health <= 0)
         {
+            animator.SetTrigger("dead");
             isWandering = false;
             isAttacking = false;
-            isDead = true;
-            animator.SetTrigger("dead");
+            isDead = true;           
             loot.DropLoot();
             loot.DropGold();
             GetComponent<NavMeshAgent>().enabled = false;

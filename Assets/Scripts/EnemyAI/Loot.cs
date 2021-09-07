@@ -19,7 +19,10 @@ public class Loot : MonoBehaviour
             int randomChance = Random.Range(0, 100);
             if (randomChance < item.GetComponent<Item>().dropChance)
             {
-                Debug.Log(item.name);
+                var position = new Vector3(Random.Range(-1.0f, 1.0f), 0, Random.Range(-1.0f, 1.0f));
+                GameObject newItem = Instantiate(item, transform.position + position, item.transform.rotation);
+                newItem.name = item.name;
+                newItem.GetComponent<Item>().UpdateText();
             }
         }       
     }

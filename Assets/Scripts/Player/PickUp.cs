@@ -10,6 +10,7 @@ public class PickUp : MonoBehaviour
     private GameObject itemTarget;
     private GameObject itemToSave;
     private Animator animator;
+    private Item itemSelected;
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class PickUp : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Item") && !EventSystem.current.IsPointerOverGameObject())
             {
                 agent.destination = hit.transform.position;
+                agent.stoppingDistance = 0;
                 itemToSave = hit.transform.gameObject.GetComponent<Item>().itemPrefab.item;
                 itemTarget = hit.transform.gameObject;
                 animator.SetBool("isWalking", true);
@@ -68,7 +70,7 @@ public class PickUp : MonoBehaviour
         if (itemTarget != null)
         {
             float dist = Vector3.Distance(itemTarget.transform.position, transform.position);
-            Debug.Log(dist);
+            
             if (dist <= 0.5)
             {
                 
