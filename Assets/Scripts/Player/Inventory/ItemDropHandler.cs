@@ -16,6 +16,7 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Slot draggedFromSlot = eventData.pointerDrag.GetComponentInParent<Slot>();
+        Debug.Log("test: " + draggedFromSlot);
         if (slot.Items.Count == 0)
         {
             Debug.Log("Add");

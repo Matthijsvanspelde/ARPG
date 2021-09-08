@@ -11,8 +11,7 @@ public class Item : MonoBehaviour
     public int stackSize;
     [SerializeField]
     private Sprite icon;
-    [SerializeField]
-    private ItemEnum itemCategory;
+    public ItemEnum itemCategory;
     [Range(0, 100)]
     public int dropChance;
 

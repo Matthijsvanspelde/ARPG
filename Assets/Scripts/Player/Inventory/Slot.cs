@@ -15,7 +15,7 @@ public class Slot : MonoBehaviour
     private Sprite defaultIcon;
 
     public List<GameObject> Items { get => items; set => items = value; }
-
+    public Image Icon { get => icon; set => icon = value; }
 
     public void UpdateCountText()
     {

@@ -1,9 +1,5 @@
-public enum ItemEnum
+public enum EquimentSlotEnum
 {
-    Consumable,
-    Junk,
-    Resource,
-    Equipment,
     Helm,
     Chest,
     Hands,
