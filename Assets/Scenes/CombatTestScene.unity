@@ -2167,6 +2167,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
+      propertyPath: defaultIcon
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
       propertyPath: slotCategory
       value: 10
       objectReference: {fileID: 0}
@@ -3667,6 +3671,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
+      propertyPath: defaultIcon
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
       propertyPath: slotCategory
       value: 4
       objectReference: {fileID: 0}
@@ -3818,6 +3826,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
+      propertyPath: defaultIcon
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
       propertyPath: slotCategory
       value: 7
@@ -4200,6 +4212,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
+      propertyPath: defaultIcon
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
       propertyPath: slotCategory
       value: 11
       objectReference: {fileID: 0}
@@ -4362,6 +4378,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
+      propertyPath: defaultIcon
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
       propertyPath: slotCategory
       value: 8
@@ -4564,6 +4584,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
+      propertyPath: defaultIcon
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
       propertyPath: slotCategory
       value: 6
@@ -7040,6 +7064,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
+      propertyPath: defaultIcon
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
       propertyPath: slotCategory
       value: 11
       objectReference: {fileID: 0}
@@ -7180,6 +7208,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
+      propertyPath: defaultIcon
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
       propertyPath: slotCategory
       value: 9
@@ -7859,6 +7891,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
+      propertyPath: defaultIcon
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2071509435633640077, guid: 934463b976595824eae535a8422d7226, type: 3}
       propertyPath: slotCategory
       value: 5
