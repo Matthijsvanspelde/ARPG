@@ -133,7 +133,7 @@ MonoBehaviour:
   - {fileID: 6432323541842249471}
   - {fileID: 565865194956200774}
   m_Bounds:
-    m_Center: {x: -0.000001013279, y: 0.000000059604645, z: 0}
+    m_Center: {x: -0.0000005364418, y: 0.000000059604645, z: 0}
     m_Extent: {x: 0.33549994, y: 0.5435, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -422,6 +422,7 @@ MonoBehaviour:
   - {fileID: 5105843026319306304, guid: bc7ab7cdf0329d344a5e842f9859dd60, type: 3}
   - {fileID: 4617613750517794075, guid: d2c4cdd82c9cc5e47b7eee5baf6beca6, type: 3}
   - {fileID: 7699644748323004957, guid: 18f7015b781483a4bbc1ffcb884490a6, type: 3}
+  - {fileID: 5105843026319306304, guid: dc5b677b69aaf8d419a37316db16781a, type: 3}
   minGoldDrop: 0
   maxGoldDrop: 10
   goldPrefab: {fileID: 4978973667860890126, guid: 942b77eb0ee80f0409e657ad2885f370, type: 3}
@@ -1050,7 +1051,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 4129491606102308660}
   m_Bounds:
-    m_Center: {x: -0.00019097328, y: -0.00000011920929, z: 0}
+    m_Center: {x: -0.00019049644, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.42479908, y: 0.45150006, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
