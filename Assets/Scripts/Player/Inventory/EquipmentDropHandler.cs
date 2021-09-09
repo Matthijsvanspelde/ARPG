@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class EquipmentDropHandler : MonoBehaviour, IDropHandler
 {
     private EquipmentSlot equipmentSlot;
+    [SerializeField]
+    private Equipment equipment;
 
     private void Awake()
     {
@@ -16,21 +18,27 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Slot draggedFromSlot = eventData.pointerDrag.GetComponentInParent<Slot>();
-        if (draggedFromSlot.Items[0].GetComponent<Item>().itemCategory == equipmentSlot.slotCategory)
+        if (draggedFromSlot.Items[0].GetComponent<EquipmentItem>() == null)
         {
-            if (equipmentSlot.Items.Count == 0)
+            return;
+        }
+        EquipmentItem equipmentItem = draggedFromSlot.Items[0].GetComponent<EquipmentItem>();
+        if (equipmentItem.itemCategory == equipmentSlot.slotCategory)
+        {
+            if (equipmentSlot.Items.Count == 0) // Add item
             {
                 // Add items to new list
                 equipmentSlot.Items = draggedFromSlot.Items.ToList();
                 equipmentSlot.UpdateCountText();
                 equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().Icon);
+                equipment.SetArmorSprite(equipmentItem);
 
                 // Remove items from old list
                 draggedFromSlot.Items = new List<GameObject>();
                 draggedFromSlot.UpdateCountText();
                 draggedFromSlot.SetIcon(null);
             }
-            else
+            else // Swap item
             {
                 // Cache items from first list to put in the second list
                 List<GameObject> itemsSecondList = new List<GameObject>();
@@ -40,6 +48,9 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
                 equipmentSlot.Items = draggedFromSlot.Items.ToList();
                 equipmentSlot.UpdateCountText();
                 equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().Icon);
+
+                // Change sprite
+                equipment.SetArmorSprite(equipmentItem);
 
                 // Add items to second list
                 draggedFromSlot.Items = itemsSecondList.ToList();

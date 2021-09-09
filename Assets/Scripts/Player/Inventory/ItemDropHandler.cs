@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class ItemDropHandler : MonoBehaviour, IDropHandler
 {
     private Slot slot;
+    [SerializeField]
+    private Equipment equipment;
 
     private void Awake()
     {
@@ -25,11 +27,16 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
             slot.UpdateCountText();
             slot.SetIcon(slot.Items[0].GetComponent<Item>().Icon);
 
+            // Change sprite
+            if (draggedFromSlot.Items[0].GetComponent<EquipmentItem>() != null)
+            {
+                equipment.SetDefaultSprite(draggedFromSlot.Items[0].GetComponent<EquipmentItem>().itemCategory);
+            }
             // Remove items from old list
             draggedFromSlot.Items = new List<GameObject>();
             draggedFromSlot.UpdateCountText();
             draggedFromSlot.SetIcon(null);
-
+            
         }
         else if (slot.Items.Count > 0)
         {
@@ -68,6 +75,13 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
                 draggedFromSlot.Items = itemsSecondList.ToList();
                 draggedFromSlot.UpdateCountText();
                 draggedFromSlot.SetIcon(draggedFromSlot.Items[0].GetComponent<Item>().Icon);
+
+                // Change sprite
+                if (draggedFromSlot.Items[0].GetComponent<EquipmentItem>() != null && draggedFromSlot.GetComponent<EquipmentSlot>() != null)
+                {
+                    equipment.SetArmorSprite(draggedFromSlot.Items[0].GetComponent<EquipmentItem>());
+                }
+                
 
             }
         }

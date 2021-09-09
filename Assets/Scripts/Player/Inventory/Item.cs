@@ -11,7 +11,7 @@ public class Item : MonoBehaviour
     public int stackSize;
     [SerializeField]
     private Sprite icon;
-    public ItemEnum itemCategory;
+    
     [Range(0, 100)]
     public int dropChance;
 
@@ -25,7 +25,6 @@ public class Item : MonoBehaviour
     
     public int StackSize { get => stackSize; private set => stackSize = value; }
     public Sprite Icon { get => icon; private set => icon = value; }
-    public ItemEnum ItemCategory { get => itemCategory; private set => itemCategory = value; }
 
     private void Awake()
     {
