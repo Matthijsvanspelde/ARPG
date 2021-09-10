@@ -95,7 +95,6 @@ public class Equipment : MonoBehaviour
 
     public void SetArmorSprite(EquipmentItem item) 
     {
-        Debug.Log("test");
         foreach (var spriteObject in item.spriteObjects)
         {
             SpriteResolver spriteResolver = spriteObject.GetComponent<SpriteResolver>();

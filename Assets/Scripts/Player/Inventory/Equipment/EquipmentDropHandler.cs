@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -25,38 +24,48 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
         EquipmentItem equipmentItem = draggedFromSlot.Items[0].GetComponent<EquipmentItem>();
         if (equipmentItem.itemCategory == equipmentSlot.slotCategory)
         {
-            if (equipmentSlot.Items.Count == 0) // Add item
+            if (equipmentSlot.Items.Count == 0)
             {
-                // Add items to new list
-                equipmentSlot.Items = draggedFromSlot.Items.ToList();
-                equipmentSlot.UpdateCountText();
-                equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().Icon);
-                equipment.SetArmorSprite(equipmentItem);
-
-                // Remove items from old list
-                draggedFromSlot.Items = new List<GameObject>();
-                draggedFromSlot.UpdateCountText();
-                draggedFromSlot.SetIcon(null);
+                AddItem(draggedFromSlot, equipmentItem);
             }
-            else // Swap item
+            else
             {
-                // Cache items from first list to put in the second list
-                List<GameObject> itemsSecondList = new List<GameObject>();
-                itemsSecondList = equipmentSlot.Items.ToList();
-
-                // Add items to first list
-                equipmentSlot.Items = draggedFromSlot.Items.ToList();
-                equipmentSlot.UpdateCountText();
-                equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().Icon);
-
-                // Change sprite
-                equipment.SetArmorSprite(equipmentItem);
-
-                // Add items to second list
-                draggedFromSlot.Items = itemsSecondList.ToList();
-                draggedFromSlot.UpdateCountText();
-                draggedFromSlot.SetIcon(draggedFromSlot.Items[0].GetComponent<Item>().Icon);
+                SwapItem(draggedFromSlot, equipmentItem);
             }
         }
+    }
+
+    private void AddItem(Slot draggedFromSlot, EquipmentItem equipmentItem) 
+    {
+        // Add items to new list
+        equipmentSlot.Items = draggedFromSlot.Items.ToList();
+        equipmentSlot.UpdateCountText();
+        equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().Icon);
+        equipment.SetArmorSprite(equipmentItem);
+
+        // Remove items from old list
+        draggedFromSlot.Items = new List<GameObject>();
+        draggedFromSlot.UpdateCountText();
+        draggedFromSlot.SetIcon(null);
+    }
+
+    private void SwapItem(Slot draggedFromSlot, EquipmentItem equipmentItem) 
+    {
+        // Cache items from first list to put in the second list
+        List<GameObject> itemsSecondList = new List<GameObject>();
+        itemsSecondList = equipmentSlot.Items.ToList();
+
+        // Add items to first list
+        equipmentSlot.Items = draggedFromSlot.Items.ToList();
+        equipmentSlot.UpdateCountText();
+        equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().Icon);
+
+        // Change sprite
+        equipment.SetArmorSprite(equipmentItem);
+
+        // Add items to second list
+        draggedFromSlot.Items = itemsSecondList.ToList();
+        draggedFromSlot.UpdateCountText();
+        draggedFromSlot.SetIcon(draggedFromSlot.Items[0].GetComponent<Item>().Icon);
     }
 }

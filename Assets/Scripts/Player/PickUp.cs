@@ -72,8 +72,7 @@ public class PickUp : MonoBehaviour
             float dist = Vector3.Distance(itemTarget.transform.position, transform.position);
             
             if (dist <= 0.5)
-            {
-                
+            {               
                 return true;
             }
         }

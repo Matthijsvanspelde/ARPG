@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     private float stoppingDistance = 0.8f;
     private float timer;
     private float attackTimer = 0f;
-    public HealthBar healthBar;
+    public EnemyHealthBar healthBar;
     private Loot loot;
 
     private NavMeshAgent agent;   
@@ -33,10 +33,11 @@ public class EnemyAI : MonoBehaviour
     public bool isDead = false;
 
     [SerializeField]
-    PlayerStatsScriptableObject playerData;
+    Player player;
 
-    private void Start()
+    private void Awake()
     {
+        healthBar.SetMaxHealth(maxHealth);
         health = maxHealth;
     }
 
@@ -98,7 +99,7 @@ public class EnemyAI : MonoBehaviour
         if (IsAtTarget() && isAttacking && attackTimer <= 0)
         {
             attackTimer = attackSpeed;
-            playerData.health -= attackDamage;
+            player.TakeDamage(attackDamage);
             animator.SetTrigger("attack");
         }
     }
@@ -141,8 +142,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void SetHealthBar() 
-    {
-        healthBar.SetMaxHealth(maxHealth);
+    {       
         healthBar.SetHealth(health);
     }
 
