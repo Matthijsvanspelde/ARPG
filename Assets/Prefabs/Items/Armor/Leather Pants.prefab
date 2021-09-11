@@ -137,17 +137,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1777cfc4c28834e92b16092c922b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 11400000, guid: ec5dd88cf071cba4b8db4dbdba071fe5, type: 2}
+  rarity: {fileID: 11400000, guid: 62e476dba34a839438155c117e57f33e, type: 2}
+  description: Fine leather pants.
+  itemCategory: 3
   stackSize: 1
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  dropChance: 50
-  itemPrefab: {fileID: 11400000, guid: ec5dd88cf071cba4b8db4dbdba071fe5, type: 2}
+  dropChance: 20
   itemName: {fileID: 2388727174461211263}
   canvas: {fileID: 2388727174669711237}
-  itemCategory: 6
+  equipmentCategory: 6
   spriteObjects:
   - {fileID: 8860364702203919052}
   - {fileID: 2339919619628377623}
   - {fileID: 3758840573265393709}
+  strength: 1
+  health: 2
+  armor: 6
 --- !u!212 &914891940197958550
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5397b2c0f00935744b507eb225954a5c, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: 5e15ee71e97097647bf919c6dd285464, type: 3}
+  m_Name: Uncommon
   m_EditorClassIdentifier: 
-  currentHealth: 36
-  maxHealth: 40
-  attackSpeed: 1
-  baseAttackDamage: 4
-  strength: 1
-  armor: 1
+  name: Uncommon
+  textColour: {r: 0.4295123, g: 0.7169812, b: 0.4295123, a: 1}

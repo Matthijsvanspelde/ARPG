@@ -1,30 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Item : MonoBehaviour
 {
-    [Header("Properties")]
-    [SerializeField]
-    public int stackSize;
-    [SerializeField]
-    private Sprite icon;
-    
-    [Range(0, 100)]
-    public int dropChance;
-
     [Header("Clone")]
     public ItemScriptableObject itemPrefab;
+
+    public Rarity rarity;
+    public string description;
+    public ItemEnum itemCategory;
+
+    [Header("Properties")]
+    public int stackSize;
+    public Sprite icon;
+
+    [Range(0, 100)]
+    public int dropChance;
 
     [Header("Name Tag")]
     [SerializeField]
     private TMP_Text itemName;
     public GameObject canvas;
-    
-    public int StackSize { get => stackSize; private set => stackSize = value; }
-    public Sprite Icon { get => icon; private set => icon = value; }
 
     private void Awake()
     {

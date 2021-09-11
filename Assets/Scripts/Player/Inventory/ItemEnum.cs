@@ -4,13 +4,4 @@ public enum ItemEnum
     Junk,
     Resource,
     Equipment,
-    Helm,
-    Chest,
-    Hands,
-    Feet,
-    Ring,
-    Neck,
-    Pants,
-    Weapon,
-    Shield,
 }

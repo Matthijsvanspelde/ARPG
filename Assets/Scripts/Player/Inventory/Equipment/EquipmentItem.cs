@@ -3,15 +3,12 @@ using UnityEngine;
 
 public class EquipmentItem : Item
 {
-    public EquimentSlotEnum itemCategory;
+    public EquimentSlotEnum equipmentCategory;
     public List<GameObject> spriteObjects = new List<GameObject>();
 
     [Header("Stat bonuses")]
-    [SerializeField]
-    private int strength;
-    [SerializeField]
-    private int health;
-    [SerializeField]
-    private int armor;
+    public int strength;
+    public int health;
+    public int armor;
 
 }

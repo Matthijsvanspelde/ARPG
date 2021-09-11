@@ -125,17 +125,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1777cfc4c28834e92b16092c922b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 11400000, guid: 5488137978104ca428078b806577c1a8, type: 2}
+  rarity: {fileID: 11400000, guid: 62e476dba34a839438155c117e57f33e, type: 2}
+  description: It's a shirt.
+  itemCategory: 3
   stackSize: 1
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  dropChance: 50
-  itemPrefab: {fileID: 11400000, guid: 5488137978104ca428078b806577c1a8, type: 2}
+  dropChance: 20
   itemName: {fileID: 5917164970499561351}
   canvas: {fileID: 5917164970442039933}
-  itemCategory: 1
+  equipmentCategory: 1
   spriteObjects:
   - {fileID: 706465107257962292}
   - {fileID: 5999525853556192239}
   - {fileID: 5121046956962524629}
+  strength: 1
+  health: 2
+  armor: 8
 --- !u!212 &9190107250810263150
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -24,9 +24,10 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
         else if (slot.Items.Count > 0)
         {
             if (slot.Items[0].name == draggedFromSlot.Items[0].name 
-                && slot.Items.Count < slot.Items[0].GetComponent<Item>().StackSize 
-                && draggedFromSlot.Items.Count < draggedFromSlot.Items[0].GetComponent<Item>().StackSize
-                && !slot.Items[0] == draggedFromSlot.Items[0])
+                && slot.Items.Count < slot.Items[0].GetComponent<Item>().stackSize
+                && draggedFromSlot.Items.Count < draggedFromSlot.Items[0].GetComponent<Item>().stackSize
+                && !slot.Items[0] == draggedFromSlot.Items[0]
+                )
             {
                 StackItem(draggedFromSlot);
             }
@@ -39,15 +40,16 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
 
     private void AddItem(Slot draggedFromSlot) 
     {
+        
         // Add items to new list
         slot.Items = draggedFromSlot.Items.ToList();
         slot.UpdateCountText();
-        slot.SetIcon(slot.Items[0].GetComponent<Item>().Icon);
+        slot.SetIcon(slot.Items[0].GetComponent<Item>().icon);
 
         // Change sprite
-        if (draggedFromSlot.Items[0].GetComponent<EquipmentItem>() != null)
+        if (draggedFromSlot.Items[0].GetComponent<EquipmentItem>() != null && draggedFromSlot.GetComponent<EquipmentSlot>() != null)
         {
-            equipment.SetDefaultSprite(draggedFromSlot.Items[0].GetComponent<EquipmentItem>().itemCategory);
+            equipment.SetDefaultSprite(draggedFromSlot.Items[0].GetComponent<EquipmentItem>().equipmentCategory);
         }
 
         // Remove items from old list
@@ -73,6 +75,17 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
 
     private void SwapItem(Slot draggedFromSlot) 
     {
+        if (draggedFromSlot.Items[0].GetComponent<EquipmentItem>() != null && draggedFromSlot.GetComponent<EquipmentSlot>() != null)
+        {
+            if (draggedFromSlot.Items[0].GetComponent<Item>().itemCategory != slot.Items[0].GetComponent<Item>().itemCategory)
+            {
+                return;
+            }
+            if (draggedFromSlot.Items[0].GetComponent<EquipmentItem>().equipmentCategory != slot.Items[0].GetComponent<EquipmentItem>().equipmentCategory)
+            {
+                return;
+            }
+        }        
         // Save items from first list to put in the second list
         List<GameObject> itemsSecondList = new List<GameObject>();
         itemsSecondList = slot.Items.ToList();
@@ -80,17 +93,17 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
         // Add items to first list
         slot.Items = draggedFromSlot.Items.ToList();
         slot.UpdateCountText();
-        slot.SetIcon(slot.Items[0].GetComponent<Item>().Icon);
+        slot.SetIcon(slot.Items[0].GetComponent<Item>().icon);
 
         // Add items to second list
         draggedFromSlot.Items = itemsSecondList.ToList();
         draggedFromSlot.UpdateCountText();
-        draggedFromSlot.SetIcon(draggedFromSlot.Items[0].GetComponent<Item>().Icon);
+        draggedFromSlot.SetIcon(draggedFromSlot.Items[0].GetComponent<Item>().icon);
 
         // Change sprite
         if (draggedFromSlot.Items[0].GetComponent<EquipmentItem>() != null && draggedFromSlot.GetComponent<EquipmentSlot>() != null)
         {
             equipment.SetArmorSprite(draggedFromSlot.Items[0].GetComponent<EquipmentItem>());
-        }
+        }         
     }
 }

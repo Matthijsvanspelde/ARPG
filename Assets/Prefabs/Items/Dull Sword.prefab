@@ -47,10 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78204afb092ba44e8561d2da8a70403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackSize: 0
-  icon: {fileID: 21300000, guid: e98c42c0731c1e1408d052ee1374961e, type: 3}
-  dropChance: 50
   itemPrefab: {fileID: 11400000, guid: b53b0fcd253d585469197f1d88f20027, type: 2}
+  rarity: {fileID: 11400000, guid: 198492eda716adf4fa2b9de9e071e430, type: 2}
+  description: This blade is too dull and rusty to use.
+  stackSize: 1
+  icon: {fileID: 21300000, guid: e98c42c0731c1e1408d052ee1374961e, type: 3}
+  dropChance: 20
   itemName: {fileID: 3473722963741873556}
   canvas: {fileID: 3473722964068032622}
   itemCategory: 1

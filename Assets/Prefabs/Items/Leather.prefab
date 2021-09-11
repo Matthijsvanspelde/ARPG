@@ -47,10 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78204afb092ba44e8561d2da8a70403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackSize: 12
-  icon: {fileID: 21300000, guid: d035e39271d9bc64bac8a5b420e75562, type: 3}
-  dropChance: 50
   itemPrefab: {fileID: 11400000, guid: d231efb0a52ac3e40a1cea14f5af7ade, type: 2}
+  rarity: {fileID: 11400000, guid: 198492eda716adf4fa2b9de9e071e430, type: 2}
+  description: Cow leather.
+  stackSize: 16
+  icon: {fileID: 21300000, guid: d035e39271d9bc64bac8a5b420e75562, type: 3}
+  dropChance: 20
   itemName: {fileID: 9186689152223022490}
   canvas: {fileID: 9186689151761119328}
   itemCategory: 2

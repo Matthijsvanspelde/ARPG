@@ -22,7 +22,7 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
             return;
         }
         EquipmentItem equipmentItem = draggedFromSlot.Items[0].GetComponent<EquipmentItem>();
-        if (equipmentItem.itemCategory == equipmentSlot.slotCategory)
+        if (equipmentItem.equipmentCategory == equipmentSlot.slotCategory)
         {
             if (equipmentSlot.Items.Count == 0)
             {
@@ -40,7 +40,7 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
         // Add items to new list
         equipmentSlot.Items = draggedFromSlot.Items.ToList();
         equipmentSlot.UpdateCountText();
-        equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().Icon);
+        equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().icon);
         equipment.SetArmorSprite(equipmentItem);
 
         // Remove items from old list
@@ -58,7 +58,7 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
         // Add items to first list
         equipmentSlot.Items = draggedFromSlot.Items.ToList();
         equipmentSlot.UpdateCountText();
-        equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().Icon);
+        equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().icon);
 
         // Change sprite
         equipment.SetArmorSprite(equipmentItem);
@@ -66,6 +66,6 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
         // Add items to second list
         draggedFromSlot.Items = itemsSecondList.ToList();
         draggedFromSlot.UpdateCountText();
-        draggedFromSlot.SetIcon(draggedFromSlot.Items[0].GetComponent<Item>().Icon);
+        draggedFromSlot.SetIcon(draggedFromSlot.Items[0].GetComponent<Item>().icon);
     }
 }

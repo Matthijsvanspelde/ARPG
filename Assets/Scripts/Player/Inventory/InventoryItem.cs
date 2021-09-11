@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class InventoryItem : Item
 {
-    public ItemEnum itemCategory;
+
 }

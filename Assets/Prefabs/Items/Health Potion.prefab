@@ -46,10 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78204afb092ba44e8561d2da8a70403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackSize: 2
-  icon: {fileID: 21300000, guid: 6ddede5f93676204480477288ecf8eda, type: 3}
-  dropChance: 50
   itemPrefab: {fileID: 11400000, guid: 3749799b14e3a6349998774ed2093a24, type: 2}
+  rarity: {fileID: 11400000, guid: 198492eda716adf4fa2b9de9e071e430, type: 2}
+  description: A health potion.
+  stackSize: 4
+  icon: {fileID: 21300000, guid: 6ddede5f93676204480477288ecf8eda, type: 3}
+  dropChance: 20
   itemName: {fileID: 2388727174461211263}
   canvas: {fileID: 2388727174669711237}
   itemCategory: 0

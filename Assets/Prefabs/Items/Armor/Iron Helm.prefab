@@ -47,15 +47,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1777cfc4c28834e92b16092c922b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 11400000, guid: 46143e4dfcc720d4984320b51d456717, type: 2}
+  rarity: {fileID: 11400000, guid: dcac55179e2b30740bdf7b08bb83b740, type: 2}
+  description: It's a bit rusty.
+  itemCategory: 3
   stackSize: 1
   icon: {fileID: 21300000, guid: 1f36ca52a7e05d040b9294d38a4480c4, type: 3}
   dropChance: 20
-  itemPrefab: {fileID: 11400000, guid: 46143e4dfcc720d4984320b51d456717, type: 2}
   itemName: {fileID: 2388727174461211263}
   canvas: {fileID: 2388727174669711237}
-  itemCategory: 0
+  equipmentCategory: 0
   spriteObjects:
   - {fileID: 8860364702203919052}
+  strength: 5
+  health: 2
+  armor: 14
 --- !u!212 &914891940197958550
 SpriteRenderer:
   m_ObjectHideFlags: 0

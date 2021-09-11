@@ -63,7 +63,7 @@ public class Inventory : MonoBehaviour
             if (slot.Items.Count == 0)
             {
                 slot.Items.Add(selectedItem);
-                slot.SetIcon(selectedItem.GetComponent<Item>().Icon);
+                slot.SetIcon(selectedItem.GetComponent<Item>().icon);
                 slot.UpdateCountText();
                 return;
             }

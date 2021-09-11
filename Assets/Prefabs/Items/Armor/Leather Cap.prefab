@@ -78,15 +78,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1777cfc4c28834e92b16092c922b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 11400000, guid: 26f3f54450344bd4fbbd79e8d35f13aa, type: 2}
+  rarity: {fileID: 11400000, guid: 62e476dba34a839438155c117e57f33e, type: 2}
+  description: Made from fine leather.
+  itemCategory: 3
   stackSize: 1
   icon: {fileID: 21300000, guid: 901a18eae5fec1747b3666ed5a37a1c1, type: 3}
-  dropChance: 50
-  itemPrefab: {fileID: 11400000, guid: 26f3f54450344bd4fbbd79e8d35f13aa, type: 2}
+  dropChance: 20
   itemName: {fileID: 2388727174461211263}
   canvas: {fileID: 2388727174669711237}
-  itemCategory: 0
+  equipmentCategory: 0
   spriteObjects:
   - {fileID: 5231418463298981517}
+  strength: 1
+  health: 1
+  armor: 4
 --- !u!212 &914891940197958550
 SpriteRenderer:
   m_ObjectHideFlags: 0
