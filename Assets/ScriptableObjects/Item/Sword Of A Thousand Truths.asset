@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5397b2c0f00935744b507eb225954a5c, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: 39ebd5395737cee42acedd9e09802a17, type: 3}
+  m_Name: Sword Of A Thousand Truths
   m_EditorClassIdentifier: 
-  currentHealth: 32
-  maxHealth: 40
-  attackSpeed: 1
-  baseAttackDamage: 4
-  strength: 1
-  armor: 1
+  item: {fileID: 5105843026319306304, guid: 14d14e3f22134464abc907d7cbe42dd5, type: 3}

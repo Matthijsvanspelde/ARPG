@@ -11,4 +11,6 @@ public enum SpriteEnum
     Pelvis,
     LeftLeg,
     RightLeg,
+    Weapon,
+    Offhand,
 }

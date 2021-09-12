@@ -54,6 +54,16 @@ public class Equipment : MonoBehaviour
     private SpriteRenderer rightHand;
     [SerializeField]
     private Sprite defaultRightHand;
+    [Header("Weapon sprites")]
+    [SerializeField]
+    private SpriteRenderer weapon;
+    [SerializeField]
+    private Sprite defaultWeapon;
+    [Header("Offhand sprites")]
+    [SerializeField]
+    private SpriteRenderer offHand;
+    [SerializeField]
+    private Sprite defaultOffHand;
 
     public void SetDefaultSprite(EquimentSlotEnum equimentSlotEnum) 
     {
@@ -85,8 +95,10 @@ public class Equipment : MonoBehaviour
                 rightLeg.sprite = defaultRightLeg;
                 break;
             case EquimentSlotEnum.Weapon:
+                weapon.sprite = defaultWeapon;
                 break;
-            case EquimentSlotEnum.Shield:
+            case EquimentSlotEnum.OffHand:
+                offHand.sprite = defaultOffHand;
                 break;
             default:
                 break;
@@ -132,6 +144,12 @@ public class Equipment : MonoBehaviour
                     break;
                 case SpriteEnum.RightLeg:
                     rightLeg.sprite = spriteResolver.sprite;
+                    break;
+                case SpriteEnum.Weapon:
+                    weapon.sprite = spriteResolver.sprite;
+                    break;
+                case SpriteEnum.Offhand:
+                    offHand.sprite = spriteResolver.sprite;
                     break;
                 default:
                     break;

@@ -8,5 +8,5 @@ public enum EquimentSlotEnum
     Neck,
     Pants,
     Weapon,
-    Shield,
+    OffHand,
 }
