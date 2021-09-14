@@ -6,18 +6,18 @@ using UnityEngine;
 public class RandomWalkGenerator : AbstractDungeonGenerator
 {
     [SerializeField]
-    private DungeonData dungeonData;
+    protected DungeonData dungeonData;
 
     protected override void RunProceduralGeneration()
     {
-        HashSet<Vector2Int> floorPositions = RunRandomWalk(dungeonData);
+        HashSet<Vector2Int> floorPositions = RunRandomWalk(dungeonData, startPosition);
         tileGenerator.PlaceFloorTiles(floorPositions);
-        WallGenerator.CreateWalls(floorPositions, tileGenerator);
+        WallGenerator.CreateWalls(floorPositions, tileGenerator);       
     }
 
-    protected HashSet<Vector2Int> RunRandomWalk(DungeonData dungeonData)
+    protected HashSet<Vector2Int> RunRandomWalk(DungeonData dungeonData, Vector2Int position)
     {
-        var currentPosition = startPosition;
+        var currentPosition = position;
         HashSet<Vector2Int> floorPositions = new HashSet<Vector2Int>();
         for (int i = 0; i < dungeonData.iterations; i++)
         {
