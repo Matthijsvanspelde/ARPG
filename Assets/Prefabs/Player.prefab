@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 8024908862843421522}
   - component: {fileID: 3272010353066245900}
   m_Layer: 6
-  m_Name: Sword
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -649,7 +649,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: 21300000, guid: 00fff84e85794634ab2b6963be37a0b5, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -657,7 +657,7 @@ SpriteRenderer:
   m_Size: {x: 2.1989582, y: 0.437}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3272010353066245900
@@ -691,6 +691,7 @@ GameObject:
   - component: {fileID: 232998636}
   - component: {fileID: 232998643}
   - component: {fileID: 403844025}
+  - component: {fileID: 681741393}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -911,7 +912,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  helm: {fileID: 4173322250611672218}
+  helm: {fileID: 5548056582758959056}
   defaultHelm: {fileID: 0}
   chest: {fileID: 3805554059599073503}
   defaultChest: {fileID: -3223173861256406081, guid: 1785e5492ac6e8541a577eea8eb6dba7, type: 3}
@@ -933,6 +934,24 @@ MonoBehaviour:
   defaultLeftHand: {fileID: 5033228910646865138, guid: 1785e5492ac6e8541a577eea8eb6dba7, type: 3}
   rightHand: {fileID: 2031593275438001569}
   defaultRightHand: {fileID: -7092501466766979710, guid: 1785e5492ac6e8541a577eea8eb6dba7, type: 3}
+  weapon: {fileID: 8024908862843421522}
+  defaultWeapon: {fileID: 0}
+  offHand: {fileID: 3396641353357782291}
+  defaultOffHand: {fileID: 0}
+--- !u!114 &681741393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708094070109168880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7107c4dde78628341a53d3665fcdf658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: ddee05a44e0d13246ad91c9c4aebce58, type: 2}
+  healthBar: {fileID: 0}
 --- !u!1 &2527827920102720090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,7 +2322,7 @@ GameObject:
   - component: {fileID: 3396641353357782291}
   - component: {fileID: 3410816678528746505}
   m_Layer: 6
-  m_Name: Shield
+  m_Name: OffHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2363,7 +2382,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bcd4e14222f2714cb9bc035deea5fcc, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2371,7 +2390,7 @@ SpriteRenderer:
   m_Size: {x: 0.885, y: 1.156}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3410816678528746505

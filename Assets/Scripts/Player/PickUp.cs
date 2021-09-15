@@ -41,7 +41,8 @@ public class PickUp : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButton(0))
         {
-            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Item") && !EventSystem.current.IsPointerOverGameObject())
+            int mask = 1 << 8;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask) && hit.collider.CompareTag("Item") && !EventSystem.current.IsPointerOverGameObject())
             {
                 agent.destination = hit.transform.position;
                 agent.stoppingDistance = 0;

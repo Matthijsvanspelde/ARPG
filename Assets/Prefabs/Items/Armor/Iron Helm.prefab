@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6611157174245882792}
   - component: {fileID: 914891940197958550}
   - component: {fileID: 1711896839965135729}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Iron Helm
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6907994226840645214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4563111383957338328}
   - component: {fileID: 5982575204516115418}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Helm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,6 +209,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4525382160970955190}
     m_Modifications:
+    - target: {fileID: 3496017808079651029, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182973860120877147, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001057, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -216,6 +224,10 @@ PrefabInstance:
     - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_Name
       value: Item Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_IsActive

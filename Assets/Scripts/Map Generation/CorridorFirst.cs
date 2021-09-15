@@ -32,6 +32,9 @@ public class CorridorFirst : RandomWalkGenerator
         floorPositions.UnionWith(roomPositions);
 
         tileGenerator.PlaceFloorTiles(floorPositions);
+
+        tileGenerator.PlaceEnemies(tileGenerator.GetRandomItemsFromList(floorPositions, 12));
+        
         WallGenerator.CreateWalls(floorPositions, tileGenerator);
         tileGenerator.BakeNavMesh();
     }

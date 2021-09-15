@@ -27,6 +27,8 @@ public class TileGenerator : MonoBehaviour
     private GameObject wallDiagonalCornerUpRight;
     [SerializeField]
     private GameObject wallDiagonalCornerUpLeft;
+    [SerializeField]
+    private GameObject goblin;
     private float tileSize;
     private NavMeshSurface navMeshSurface;
 
@@ -138,5 +140,31 @@ public class TileGenerator : MonoBehaviour
             GameObject wallToInstantiate = Instantiate(wall, wall.transform.position + new Vector3(position.x * tileSize, 0, position.y * tileSize), rotation);
             wallToInstantiate.transform.SetParent(transform);
         }
+    }
+
+    public void PlaceEnemies(IEnumerable<Vector2Int> enemyPositions) 
+    {
+        foreach (var position in enemyPositions)
+        {
+            Instantiate(goblin, new Vector3(position.x, 0, position.y), Quaternion.identity);
+        }
+    }
+
+    public IEnumerable<Vector2Int>GetRandomItemsFromList(IEnumerable<Vector2Int> floorPositions, int number)
+    {
+        // this is the list we're going to remove picked items from
+        List<Vector2Int> tmpList = new List<Vector2Int>(floorPositions);
+        // this is the list we're going to move items to
+        List<Vector2Int> newList = new List<Vector2Int>();
+
+        // make sure tmpList isn't already empty
+        while (newList.Count < number && tmpList.Count > 0)
+        {
+            int index = UnityEngine.Random.Range(0, tmpList.Count);
+            newList.Add(tmpList[index]);
+            tmpList.RemoveAt(index);
+        }
+
+        return newList;
     }
 }

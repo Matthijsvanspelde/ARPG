@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1297290369}
   - component: {fileID: 1297290371}
   - component: {fileID: 1297290372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dull Sword
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -50,12 +50,12 @@ MonoBehaviour:
   itemPrefab: {fileID: 11400000, guid: b53b0fcd253d585469197f1d88f20027, type: 2}
   rarity: {fileID: 11400000, guid: 198492eda716adf4fa2b9de9e071e430, type: 2}
   description: This blade is too dull and rusty to use.
+  itemCategory: 1
   stackSize: 1
   icon: {fileID: 21300000, guid: e98c42c0731c1e1408d052ee1374961e, type: 3}
   dropChance: 20
   itemName: {fileID: 3473722963741873556}
   canvas: {fileID: 3473722964068032622}
-  itemCategory: 1
 --- !u!65 &1297290369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -139,6 +139,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6213405991300439402}
     m_Modifications:
+    - target: {fileID: 3496017808079651029, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182973860120877147, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001057, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -146,6 +154,10 @@ PrefabInstance:
     - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_Name
       value: Item Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001063, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_Pivot.x

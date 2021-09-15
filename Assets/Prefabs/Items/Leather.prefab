@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5986650386319000370}
   - component: {fileID: 2608203919307236704}
   - component: {fileID: 3663576323978842119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leather
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -50,12 +50,12 @@ MonoBehaviour:
   itemPrefab: {fileID: 11400000, guid: d231efb0a52ac3e40a1cea14f5af7ade, type: 2}
   rarity: {fileID: 11400000, guid: 198492eda716adf4fa2b9de9e071e430, type: 2}
   description: Cow leather.
+  itemCategory: 2
   stackSize: 16
   icon: {fileID: 21300000, guid: d035e39271d9bc64bac8a5b420e75562, type: 3}
   dropChance: 20
   itemName: {fileID: 9186689152223022490}
   canvas: {fileID: 9186689151761119328}
-  itemCategory: 2
 --- !u!212 &5986650386319000370
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -139,6 +139,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7303078027141691337}
     m_Modifications:
+    - target: {fileID: 3496017808079651029, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182973860120877147, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001057, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
@@ -146,6 +154,10 @@ PrefabInstance:
     - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_Name
       value: Item Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001063, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_Pivot.x
