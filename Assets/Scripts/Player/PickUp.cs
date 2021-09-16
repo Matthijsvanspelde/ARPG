@@ -9,14 +9,12 @@ public class PickUp : MonoBehaviour
     private NavMeshAgent agent;
     private GameObject itemTarget;
     private GameObject itemToSave;
-    private Animator animator;
     private Item itemSelected;
 
     void Start()
     {
         inventory = GetComponent<Inventory>();
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -48,7 +46,6 @@ public class PickUp : MonoBehaviour
                 agent.stoppingDistance = 0;
                 itemToSave = hit.transform.gameObject.GetComponent<Item>().itemPrefab.item;
                 itemTarget = hit.transform.gameObject;
-                animator.SetBool("isWalking", true);
             }
             else
             {

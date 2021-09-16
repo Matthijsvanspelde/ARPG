@@ -1861,7 +1861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 221171655}
   smoothSpeed: 1
-  offset: {x: 0, y: 8, z: -7}
+  offset: {x: 0, y: 13, z: -14}
 --- !u!114 &1516383568 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6530259720731723431, guid: 0fced87eff63ad54596a80027f7334ec, type: 3}

@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Gold
   - Item
+  - NPC
   layers:
   - Default
   - TransparentFX

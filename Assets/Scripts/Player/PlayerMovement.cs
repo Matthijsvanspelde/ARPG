@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Ground") && !EventSystem.current.IsPointerOverGameObject())
             {
-                animator.SetBool("isWalking", true);
                 agent.stoppingDistance = 0;
                 agent.destination = hit.point;
             }
@@ -38,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
         if (agent.velocity.magnitude == 0)
         {
             animator.SetBool("isWalking", false);
+        }
+        else if (agent.velocity.magnitude > 0)
+        {
+            animator.SetBool("isWalking", true);
         }
     }
 
