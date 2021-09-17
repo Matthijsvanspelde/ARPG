@@ -54,7 +54,7 @@ MonoBehaviour:
   itemCategory: 3
   stackSize: 1
   icon: {fileID: 21300000, guid: f3cdcb233a35caf47b5c855ee7d06827, type: 3}
-  dropChance: 50
+  dropChance: 5
   itemName: {fileID: 2388727174461211263}
   canvas: {fileID: 2388727174669711237}
   equipmentCategory: 7

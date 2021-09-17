@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFieldOfView : MonoBehaviour
+public class FieldOfView : MonoBehaviour
 {
 	public float viewRadius;
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
 	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
-
-    private void Update()
-    {
-		FoundPlayer();
-	}
 
     public bool FoundPlayer()
 	{

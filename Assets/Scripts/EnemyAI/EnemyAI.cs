@@ -17,14 +17,14 @@ public class EnemyAI : MonoBehaviour
     public float wanderRadius;
     public float wanderTimer;
     [SerializeField]
-    private float stoppingDistance = 0.8f;
+    private float attackRange = 0.8f;
     private float timer;
     private float attackTimer = 0f;
     public EnemyHealthBar healthBar;
     private Loot loot;
 
     private NavMeshAgent agent;   
-    private EnemyFieldOfView fov;
+    private FieldOfView fov;
     private Animator animator;
 
     //States
@@ -53,7 +53,7 @@ public class EnemyAI : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        fov = GetComponent<EnemyFieldOfView>();
+        fov = GetComponent<FieldOfView>();
         loot = GetComponent<Loot>();
         timer = wanderTimer;
     }
@@ -93,7 +93,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Attack()
     {
-        agent.stoppingDistance = stoppingDistance;
+        agent.stoppingDistance = attackRange;
         if (fov.visibleTargets.Count > 0)
         {
             agent.destination = fov.visibleTargets[0].transform.position;
@@ -107,7 +107,10 @@ public class EnemyAI : MonoBehaviour
         {
             attackTimer = attackSpeed;
             player.TakeDamage(attackDamage);
-            animator.SetTrigger("attack");
+            if (animator != null)
+            {
+                animator.SetTrigger("attack");
+            }          
         }
     }
 
@@ -121,14 +124,17 @@ public class EnemyAI : MonoBehaviour
 
     private void SetAnimationState() 
     {
-        if (agent.velocity.magnitude > 0)
+        if (animator != null)
         {
-            animator.SetBool("isWalking", true);
-        }
-        else if (agent.velocity.magnitude == 0)
-        {
-            animator.SetBool("isWalking", false);
-        }
+            if (agent.velocity.magnitude > 0)
+            {
+                animator.SetBool("isWalking", true);
+            }
+            else if (agent.velocity.magnitude == 0)
+            {
+                animator.SetBool("isWalking", false);
+            }
+        }        
     }
 
     public void TakeDamage(int damage) 
@@ -137,7 +143,10 @@ public class EnemyAI : MonoBehaviour
         SetHealthBar();
         if (health <= 0)
         {
-            animator.SetTrigger("dead");
+            if (animator != null)
+            {
+                animator.SetTrigger("dead");
+            }          
             isWandering = false;
             isAttacking = false;
             isDead = true;           
@@ -181,7 +190,7 @@ public class EnemyAI : MonoBehaviour
         if (fov.visibleTargets.Count > 0)
         {
             float dist = Vector3.Distance(fov.visibleTargets[0].transform.position, transform.position);
-            if (dist <= stoppingDistance)
+            if (dist <= attackRange)
             {
                 return true;
             }

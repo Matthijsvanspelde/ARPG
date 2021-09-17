@@ -86,11 +86,11 @@ public class PlayerAttack : MonoBehaviour
         
         if (IsAtTarget() && attackTimer <= 0 && hasClicked)
         {
-            Debug.Log(hasClicked);
             hasClicked = false;
             enemyAI.TakeDamage(playerData.baseAttackDamage);
             animator.SetTrigger("swing");
             attackTimer = playerData.attackSpeed;
+            agent.destination = transform.position;
             if (enemyAI.isDead)
             {
                 enemyAI.healthBar.SetActive(false);
