@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class TileGenerator : MonoBehaviour
 {
     [SerializeField]
-    private GameObject tile;
+    private List<GameObject> tiles = new List<GameObject>();
     [SerializeField]
     private GameObject wallTop;
     [SerializeField]
@@ -31,10 +31,12 @@ public class TileGenerator : MonoBehaviour
     private GameObject goblin;
     private float tileSize;
     private NavMeshSurface navMeshSurface;
+    [SerializeField]
+    private int enemyCount;
 
     private void Awake()
     {
-        tileSize = tile.GetComponent<Renderer>().bounds.size.x;
+        tileSize = tiles[0].GetComponent<Renderer>().bounds.size.x;
         navMeshSurface = GetComponent<NavMeshSurface>();
     }
 
@@ -50,9 +52,15 @@ public class TileGenerator : MonoBehaviour
 
     private void PlaceTiles(IEnumerable<Vector2Int> floorPositions)
     {
+        int totalWeight = 0;
+        foreach (var item in tiles)
+        {
+            totalWeight += item.GetComponent<TileWeight>().SpawnChange;
+        }
+        
         foreach (var position in floorPositions)
         {
-            PlaceSingleTile(position);
+            PlaceSingleTile(position, totalWeight);
         }
     }
 
@@ -97,9 +105,10 @@ public class TileGenerator : MonoBehaviour
 
     
 
-    private void PlaceSingleTile(Vector2Int position)
+    private void PlaceSingleTile(Vector2Int position, int totalWeight)
     {
-        GameObject tile = Instantiate(this.tile);
+        var tileIndex = RandomWeighted(totalWeight);
+        GameObject tile = Instantiate(tiles[tileIndex]);
         tile.transform.position = new Vector3(position.x * tileSize, 0, position.y * tileSize);
         tile.transform.SetParent(transform);
     }
@@ -142,29 +151,15 @@ public class TileGenerator : MonoBehaviour
         }
     }
 
-    public void PlaceEnemies(IEnumerable<Vector2Int> enemyPositions) 
+    private int RandomWeighted(int totalWeight)
     {
-        foreach (var position in enemyPositions)
+        int result = 0, total = 0;
+        int randVal = UnityEngine.Random.Range(0, totalWeight + 1);
+        for (result = 0; result < tiles.Count; result++)
         {
-            Instantiate(goblin, new Vector3(position.x, 0, position.y), Quaternion.identity);
+            total += tiles[result].GetComponent<TileWeight>().SpawnChange;
+            if (total >= randVal) break;
         }
-    }
-
-    public IEnumerable<Vector2Int>GetRandomItemsFromList(IEnumerable<Vector2Int> floorPositions, int number)
-    {
-        // this is the list we're going to remove picked items from
-        List<Vector2Int> tmpList = new List<Vector2Int>(floorPositions);
-        // this is the list we're going to move items to
-        List<Vector2Int> newList = new List<Vector2Int>();
-
-        // make sure tmpList isn't already empty
-        while (newList.Count < number && tmpList.Count > 0)
-        {
-            int index = UnityEngine.Random.Range(0, tmpList.Count);
-            newList.Add(tmpList[index]);
-            tmpList.RemoveAt(index);
-        }
-
-        return newList;
+        return result;
     }
 }

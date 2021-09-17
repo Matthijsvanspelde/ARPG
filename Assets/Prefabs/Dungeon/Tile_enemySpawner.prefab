@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2726107090626519219}
   - component: {fileID: 7768798296361184455}
   m_Layer: 7
-  m_Name: Tile
+  m_Name: Tile_enemySpawner
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,4 +109,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4ffd81e91d5f54c8890fb16c3ac8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnChance: 25
+  spawnChance: 1
