@@ -420,6 +420,7 @@ MonoBehaviour:
   - {fileID: 2726107090626519218, guid: 0037f65fe73ae8843bddea5c161edcef, type: 3}
   - {fileID: 2726107090626519218, guid: 0df54eb256fc7964b9a1563f309f6be8, type: 3}
   - {fileID: 2726107090626519218, guid: fb466a3347d6b574789efca9d8e6ea98, type: 3}
+  endTile: {fileID: 2726107090626519218, guid: 04b2589345b5e5e45ad14444855ac103, type: 3}
   wallTop: {fileID: 2998442511177455073, guid: d2cb1116eb5f08e4b97cb1b37a5696c8, type: 3}
   wallRight: {fileID: 5261721680301467271, guid: 2cfc766048bd7d943ba71b5b1e6ee2c9, type: 3}
   wallLeft: {fileID: 1541175853210985886, guid: 4050b1c465b7b6843a376153dd733ba8, type: 3}
@@ -1313,8 +1314,8 @@ MonoBehaviour:
   tileGenerator: {fileID: 259800582}
   startPosition: {x: 0, y: 0}
   dungeonData: {fileID: 11400000, guid: ccbbbf9577c8dcd419df7c8889497179, type: 2}
-  corridorLength: 15
-  corridorCount: 15
+  corridorLength: 10
+  corridorCount: 8
   roomPercent: 0.5
 --- !u!4 &823816876
 Transform:

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Flame
+  m_Name: CandleFlame
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -32,24 +32,7 @@ AnimationClip:
     - time: 0.41666666
       value: {fileID: 2100000, guid: c87b1e683097ede45abcb15837cc79d4, type: 2}
     attribute: m_Materials.Array.data[0]
-    path: Fire
-    classID: 23
-    script: {fileID: 0}
-  - curve:
-    - time: 0
-      value: {fileID: 2100000, guid: 06d89fb2c7371ce4997c905f8e77e569, type: 2}
-    - time: 0.083333336
-      value: {fileID: 2100000, guid: 4b0711991b6e4aa4c95cdaca822e25c5, type: 2}
-    - time: 0.16666667
-      value: {fileID: 2100000, guid: 4dd1d8750e49b874e877c9948a104b3a, type: 2}
-    - time: 0.25
-      value: {fileID: 2100000, guid: 82c6969471de95d4e83e0bb4fb249d92, type: 2}
-    - time: 0.33333334
-      value: {fileID: 2100000, guid: 52f559bb242ce014e9ccdde7467f05ef, type: 2}
-    - time: 0.41666666
-      value: {fileID: 2100000, guid: c87b1e683097ede45abcb15837cc79d4, type: 2}
-    attribute: m_Materials.Array.data[0]
-    path: Flame
+    path: 
     classID: 23
     script: {fileID: 0}
   m_SampleRate: 60
@@ -60,26 +43,13 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 4176258801
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 23
-      customType: 21
-      isPPtrCurve: 1
-    - serializedVersion: 2
-      path: 3305059173
+      path: 0
       attribute: 0
       script: {fileID: 0}
       typeID: 23
       customType: 21
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 2100000, guid: 06d89fb2c7371ce4997c905f8e77e569, type: 2}
-    - {fileID: 2100000, guid: 4b0711991b6e4aa4c95cdaca822e25c5, type: 2}
-    - {fileID: 2100000, guid: 4dd1d8750e49b874e877c9948a104b3a, type: 2}
-    - {fileID: 2100000, guid: 82c6969471de95d4e83e0bb4fb249d92, type: 2}
-    - {fileID: 2100000, guid: 52f559bb242ce014e9ccdde7467f05ef, type: 2}
-    - {fileID: 2100000, guid: c87b1e683097ede45abcb15837cc79d4, type: 2}
     - {fileID: 2100000, guid: 06d89fb2c7371ce4997c905f8e77e569, type: 2}
     - {fileID: 2100000, guid: 4b0711991b6e4aa4c95cdaca822e25c5, type: 2}
     - {fileID: 2100000, guid: 4dd1d8750e49b874e877c9948a104b3a, type: 2}

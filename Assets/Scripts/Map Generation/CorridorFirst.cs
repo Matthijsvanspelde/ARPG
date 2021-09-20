@@ -35,6 +35,7 @@ public class CorridorFirst : RandomWalkGenerator
         
         WallGenerator.CreateWalls(floorPositions, tileGenerator);
         tileGenerator.BakeNavMesh();
+        
     }
 
     private void CreateRoomsAtDeadEnds(List<Vector2Int> deadEnds, HashSet<Vector2Int> roomFloors)

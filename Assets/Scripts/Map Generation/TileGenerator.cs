@@ -10,6 +10,8 @@ public class TileGenerator : MonoBehaviour
     [SerializeField]
     private List<GameObject> tiles = new List<GameObject>();
     [SerializeField]
+    private GameObject endTile;
+    [SerializeField]
     private GameObject wallTop;
     [SerializeField]
     private GameObject wallRight;
@@ -36,7 +38,7 @@ public class TileGenerator : MonoBehaviour
 
     private void Awake()
     {
-        tileSize = tiles[0].GetComponent<Renderer>().bounds.size.x;
+        tileSize = 10;
         navMeshSurface = GetComponent<NavMeshSurface>();
     }
 
@@ -60,8 +62,17 @@ public class TileGenerator : MonoBehaviour
         
         foreach (var position in floorPositions)
         {
-            PlaceSingleTile(position, totalWeight);
+            if (position == floorPositions.LastOrDefault())
+            {
+                PlaceEndTile(position);
+            }
+            else
+            {
+                PlaceSingleTile(position, totalWeight);
+            }
+            
         }
+        
     }
 
     internal void PlaceSingleWall(Vector2Int position, string binaryType)
@@ -103,7 +114,12 @@ public class TileGenerator : MonoBehaviour
         }       
     }
 
-    
+    private void PlaceEndTile(Vector2Int position) 
+    {
+        GameObject tile = Instantiate(endTile);
+        tile.transform.position = new Vector3(position.x * tileSize, 0, position.y * tileSize);
+        tile.transform.SetParent(transform);
+    }
 
     private void PlaceSingleTile(Vector2Int position, int totalWeight)
     {
