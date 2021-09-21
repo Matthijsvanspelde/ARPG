@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2213557155521001904}
   - component: {fileID: 2326217218849088060}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3152134089093686838}
   - component: {fileID: 4338688413089748964}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 6611157174245882792}
   - component: {fileID: 914891940197958550}
   - component: {fileID: 1711896839965135729}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Leather Pants
   m_TagString: Item
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6907994226840645214}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Sprite Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4563111383957338328}
   - component: {fileID: 5982575204516115418}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,11 +305,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3496017808079651029, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860120877147, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001057, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -321,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_IsActive

@@ -27,8 +27,10 @@ public class PlayerMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButton(0))
         {
-            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Ground") && !EventSystem.current.IsPointerOverGameObject())
+            int mask = 1 << 7;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask) && hit.collider.CompareTag("Ground") && !EventSystem.current.IsPointerOverGameObject())
             {
+
                 agent.stoppingDistance = 0;
                 agent.destination = hit.point;
             }

@@ -9,6 +9,8 @@ TagManager:
   - Gold
   - Item
   - NPC
+  - Wall
+  - Stairs
   layers:
   - Default
   - TransparentFX
@@ -18,9 +20,9 @@ TagManager:
   - UI
   - Player
   - Walkable
+  - 
+  - Enemy
   - Item
-  - 
-  - 
   - 
   - 
   - 

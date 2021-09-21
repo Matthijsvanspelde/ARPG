@@ -6,40 +6,23 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class TileGenerator : MonoBehaviour
-{
-    [SerializeField]
-    private List<GameObject> tiles = new List<GameObject>();
-    [SerializeField]
-    private GameObject endTile;
-    [SerializeField]
-    private GameObject wallTop;
-    [SerializeField]
-    private GameObject wallRight;
-    [SerializeField]
-    private GameObject wallLeft;
-    [SerializeField]
-    private GameObject wallBottom;
-    [SerializeField]
-    private GameObject wallFull;
-    [SerializeField]
-    private GameObject wallDiagonalCornerDownRight;
-    [SerializeField]
-    private GameObject wallDiagonalCornerDownLeft;
-    [SerializeField]
-    private GameObject wallDiagonalCornerUpRight;
-    [SerializeField]
-    private GameObject wallDiagonalCornerUpLeft;
-    [SerializeField]
-    private GameObject goblin;
-    private float tileSize;
+{    
+    private float tileSize = 10;
     private NavMeshSurface navMeshSurface;
-    [SerializeField]
-    private int enemyCount;
+    private TileSetData tileSetData;
+    private DungeonLevel dungeonLevel;
 
     private void Awake()
     {
-        tileSize = 10;
+        dungeonLevel = GetComponent<DungeonLevel>();
+        tileSetData = dungeonLevel.GetTileSet();
         navMeshSurface = GetComponent<NavMeshSurface>();
+    }
+
+    public void SetTileSetData() 
+    {
+        dungeonLevel.level++;
+        tileSetData = dungeonLevel.GetTileSet();
     }
 
     public void BakeNavMesh() 
@@ -55,22 +38,26 @@ public class TileGenerator : MonoBehaviour
     private void PlaceTiles(IEnumerable<Vector2Int> floorPositions)
     {
         int totalWeight = 0;
-        foreach (var item in tiles)
+        foreach (var item in tileSetData.tiles)
         {
             totalWeight += item.GetComponent<TileWeight>().SpawnChange;
         }
         
         foreach (var position in floorPositions)
         {
-            if (position == floorPositions.LastOrDefault())
+            if (position == floorPositions.FirstOrDefault())
             {
-                PlaceEndTile(position);
+                PlaceTransitionTile(position, tileSetData.startTile);
+            }
+            else if (position == floorPositions.LastOrDefault())
+            {
+                PlaceTransitionTile(position, tileSetData.endTile);
             }
             else
             {
                 PlaceSingleTile(position, totalWeight);
             }
-            
+                      
         }
         
     }
@@ -82,28 +69,28 @@ public class TileGenerator : MonoBehaviour
         var rotation = Quaternion.Euler(new Vector3(0,0,0));
         if (WallTypesHelper.wallTop.Contains(typeAsInt))
         {
-            wall = wallTop;
+            wall = tileSetData.wallTop;
             rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         }
         else if (WallTypesHelper.wallRight.Contains(typeAsInt))
         {
-            wall = wallRight;
+            wall = tileSetData.wallRight;
             rotation = Quaternion.Euler(new Vector3(0, 90, 0));
         }
         else if (WallTypesHelper.wallLeft.Contains(typeAsInt))
         {
-            wall = wallLeft;
+            wall = tileSetData.wallLeft;
             rotation = Quaternion.Euler(new Vector3(0, 90, 0));
         }
         else if (WallTypesHelper.wallBottom.Contains(typeAsInt))
         {
-            wall = wallBottom;
+            wall = tileSetData.wallBottom;
             rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
         }
         else if (WallTypesHelper.wallFull.Contains(typeAsInt))
         {
-            wall = wallFull;
+            wall = tileSetData.wallFull;
             rotation = Quaternion.Euler(new Vector3(0, 0, 0));
 
         }
@@ -114,17 +101,17 @@ public class TileGenerator : MonoBehaviour
         }       
     }
 
-    private void PlaceEndTile(Vector2Int position) 
+    private void PlaceTransitionTile(Vector2Int position, GameObject tile) 
     {
-        GameObject tile = Instantiate(endTile);
-        tile.transform.position = new Vector3(position.x * tileSize, 0, position.y * tileSize);
-        tile.transform.SetParent(transform);
+        GameObject instantiatedTile = Instantiate(tile);
+        instantiatedTile.transform.position = new Vector3(position.x * tileSize, 0, position.y * tileSize);
+        instantiatedTile.transform.SetParent(transform);
     }
 
     private void PlaceSingleTile(Vector2Int position, int totalWeight)
     {
         var tileIndex = RandomWeighted(totalWeight);
-        GameObject tile = Instantiate(tiles[tileIndex]);
+        GameObject tile = Instantiate(tileSetData.tiles[tileIndex]);
         tile.transform.position = new Vector3(position.x * tileSize, 0, position.y * tileSize);
         tile.transform.SetParent(transform);
     }
@@ -137,27 +124,27 @@ public class TileGenerator : MonoBehaviour
 
         if (WallTypesHelper.wallDiagonalCornerDownLeft.Contains(typeAsInt))
         {
-            wall = wallDiagonalCornerDownLeft;
+            wall = tileSetData.wallDiagonalCornerDownLeft;
         }
         else if (WallTypesHelper.wallDiagonalCornerDownRight.Contains(typeAsInt))
         {
-            wall = wallDiagonalCornerDownRight;
+            wall = tileSetData.wallDiagonalCornerDownRight;
         }
         else if (WallTypesHelper.wallDiagonalCornerUpRight.Contains(typeAsInt))
         {
-            wall = wallDiagonalCornerUpRight;
+            wall = tileSetData.wallDiagonalCornerUpRight;
         }
         else if (WallTypesHelper.wallDiagonalCornerUpLeft.Contains(typeAsInt))
         {
-            wall = wallDiagonalCornerUpLeft;
+            wall = tileSetData.wallDiagonalCornerUpLeft;
         }
         else if (WallTypesHelper.wallFullEightDirections.Contains(typeAsInt))
         {
-            wall = wallFull;
+            wall = tileSetData.wallFull;
         }
         else if (WallTypesHelper.wallBottmEightDirections.Contains(typeAsInt))
         {
-            wall = wallBottom;
+            wall = tileSetData.wallBottom;
         }
 
         if (wall != null)
@@ -171,9 +158,9 @@ public class TileGenerator : MonoBehaviour
     {
         int result = 0, total = 0;
         int randVal = UnityEngine.Random.Range(0, totalWeight + 1);
-        for (result = 0; result < tiles.Count; result++)
+        for (result = 0; result < tileSetData.tiles.Count; result++)
         {
-            total += tiles[result].GetComponent<TileWeight>().SpawnChange;
+            total += tileSetData.tiles[result].GetComponent<TileWeight>().SpawnChange;
             if (total >= randVal) break;
         }
         return result;

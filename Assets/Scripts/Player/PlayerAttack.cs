@@ -37,10 +37,12 @@ public class PlayerAttack : MonoBehaviour
     private void TargetEnemy() 
     {
         RaycastHit hit;
+        int mask = 1 << 9;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButton(0))
-        {           
-            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Enemy") && !EventSystem.current.IsPointerOverGameObject())
+        {
+            
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask) && hit.collider.CompareTag("Enemy") && !EventSystem.current.IsPointerOverGameObject())
             {
                 animator.SetBool("isWalking", true);
                 target = hit.transform.gameObject;
@@ -66,7 +68,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Enemy"))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask) && hit.collider.CompareTag("Enemy"))
             {
                 hasClicked = true;
             }            
@@ -78,6 +80,10 @@ public class PlayerAttack : MonoBehaviour
         if (target != null)
         {
             agent.destination = target.transform.position;
+            if (IsAtTarget())
+            {
+                agent.destination = transform.position;
+            }
         }
     }
 

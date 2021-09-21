@@ -1,18 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HideWalls : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Transform target;
+    private Transform obstruction;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        ViewObstructed();
+    }
+
+    private void ViewObstructed() 
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, target.position - transform.position, out hit, 100f))
+        {
+            hideWall(hit);
+        }
+    }
+
+    private void hideWall(RaycastHit hit) 
+    {
+        if (hit.collider.gameObject.CompareTag("Wall"))
+        {
+            obstruction = hit.transform;
+            obstruction.gameObject.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+
+
+        }
+        else if (obstruction != null)
+        {
+            obstruction.gameObject.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+
+        }
     }
 }
