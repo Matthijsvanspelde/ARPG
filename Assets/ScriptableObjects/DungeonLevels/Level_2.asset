@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level_2
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 2726107090626519218, guid: 0037f65fe73ae8843bddea5c161edcef, type: 3}
+  - {fileID: 2726107090626519218, guid: 0df54eb256fc7964b9a1563f309f6be8, type: 3}
   - {fileID: 2726107090626519218, guid: fb466a3347d6b574789efca9d8e6ea98, type: 3}
   - {fileID: 2726107090626519218, guid: 0037f65fe73ae8843bddea5c161edcef, type: 3}
   endTile: {fileID: 2726107090626519218, guid: 04b2589345b5e5e45ad14444855ac103, type: 3}

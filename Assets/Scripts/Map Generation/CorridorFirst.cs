@@ -11,6 +11,7 @@ public class CorridorFirst : RandomWalkGenerator
     [SerializeField]
     [Range(0.1f, 1f)]
     private float roomPercent = 0.8f;
+    private bool doneGenerating = false;
 
     protected override void RunProceduralGeneration() 
     {
@@ -34,8 +35,19 @@ public class CorridorFirst : RandomWalkGenerator
         tileGenerator.PlaceFloorTiles(floorPositions);
         
         WallGenerator.CreateWalls(floorPositions, tileGenerator);
-        tileGenerator.BakeNavMesh();
+
+        doneGenerating = true;
         
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if (doneGenerating)
+        {
+            tileGenerator.BakeNavMesh();
+            doneGenerating = false;
+        }
     }
 
     private void CreateRoomsAtDeadEnds(List<Vector2Int> deadEnds, HashSet<Vector2Int> roomFloors)

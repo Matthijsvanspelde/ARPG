@@ -51,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
                 
                 enemyAI.SetHealthBar();
                 enemyAI.healthBar.SetNameTag(target.name);
-                enemyAI.healthBar.SetActive(true);
+                enemyAI.healthBar.SetVisibility(true);
                 if (attackTimer <= 0)
                 {
                     hasClicked = true;
@@ -61,7 +61,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (target != null)
                 {
-                    enemyAI.healthBar.SetActive(false);
+                    enemyAI.healthBar.SetVisibility(false);
                 }               
                 target = null;
             }
@@ -99,7 +99,7 @@ public class PlayerAttack : MonoBehaviour
             agent.destination = transform.position;
             if (enemyAI.isDead)
             {
-                enemyAI.healthBar.SetActive(false);
+                enemyAI.healthBar.SetVisibility(false);
             }                     
         }
     }

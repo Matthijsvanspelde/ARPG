@@ -40,12 +40,8 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Player>();
         healthBar = GameObject.Find("Canvas/Enemy Health Bar").GetComponent<EnemyHealthBar>();
         healthBar.SetMaxHealth(maxHealth);
-        health = maxHealth;     
-    }
-
-    private void Start()
-    {
-        healthBar.SetActive(false);
+        health = maxHealth;
+        healthBar.SetVisibility(false);
     }
 
     // Use this for initialization

@@ -22,11 +22,18 @@ public class TileGenerator : MonoBehaviour
     public void SetTileSetData() 
     {
         dungeonLevel.level++;
+        dungeonLevel.SetLevelText();
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
         tileSetData = dungeonLevel.GetTileSet();
     }
 
     public void BakeNavMesh() 
     {
+        NavMesh.RemoveAllNavMeshData();
+        navMeshSurface.RemoveData();
         navMeshSurface.BuildNavMesh();
     }
 

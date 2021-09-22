@@ -11,6 +11,11 @@ public class TileEndInteraction : MonoBehaviour
     private NavMeshAgent agent;
     [SerializeField]
     private TileGenerator tileGenerator;
+    [SerializeField]
+    private AbstractDungeonGenerator dungeonGenerator;
+    private bool hasGenerated = false;
+    [SerializeField]
+    private Animator animator;
 
     private void Awake()
     {
@@ -26,10 +31,13 @@ public class TileEndInteraction : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        if (IsAtTarget())
+        if (IsAtTarget() && !hasGenerated)
         {
-            
+            animator.SetTrigger("Fade");
             tileGenerator.SetTileSetData();
+            dungeonGenerator.GenerateDungeon();
+            gameObject.transform.position = new Vector3(0, transform.position.y, 0);
+            hasGenerated = true;
         }
     }
 
@@ -42,6 +50,7 @@ public class TileEndInteraction : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Stairs") && !EventSystem.current.IsPointerOverGameObject())
             {
+                hasGenerated = false;
                 target = hit.collider.gameObject;
                 agent.destination = target.transform.position;
             }
@@ -57,7 +66,6 @@ public class TileEndInteraction : MonoBehaviour
         if (target != null)
         {
             float dist = Vector3.Distance(target.transform.position, transform.position);
-            Debug.Log(dist);
             if (dist <= 1.5)
             {
                 return true;
