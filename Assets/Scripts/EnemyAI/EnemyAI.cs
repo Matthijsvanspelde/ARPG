@@ -6,12 +6,14 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [Header("Stats")]
-    public int health;
+    public float health;
     [SerializeField]
-    public int maxHealth = 8;   
-    private int attackSpeed = 2;
+    public float maxHealth = 8;   
+    private float attackSpeed = 2;
     [SerializeField]
-    private int attackDamage = 2;
+    private float attackDamage = 2;
+    [SerializeField]
+    private int experienceReward = 5;
 
     [Header("AI")]
     public float wanderRadius;
@@ -33,13 +35,13 @@ public class EnemyAI : MonoBehaviour
     public bool isDead = false;
 
     [SerializeField]
-    Player player;
+    private Player player;
 
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
         healthBar = GameObject.Find("Canvas/Enemy Health Bar").GetComponent<EnemyHealthBar>();
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxValue(maxHealth);
         health = maxHealth;
         healthBar.SetVisibility(false);
     }
@@ -133,7 +135,7 @@ public class EnemyAI : MonoBehaviour
         }        
     }
 
-    public void TakeDamage(int damage) 
+    public void TakeDamage(float damage) 
     {
         health -= damage;
         SetHealthBar();
@@ -148,6 +150,7 @@ public class EnemyAI : MonoBehaviour
             isDead = true;           
             loot.DropLoot();
             loot.DropGold();
+            player.EarnExperience(experienceReward);
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
         }
@@ -155,7 +158,7 @@ public class EnemyAI : MonoBehaviour
 
     public void SetHealthBar() 
     {       
-        healthBar.SetHealth(health);
+        healthBar.SetCurrentValue(health);
     }
 
     private static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)

@@ -415,6 +415,7 @@ MonoBehaviour:
   health: 8
   maxHealth: 8
   attackDamage: 2
+  experienceReward: 10
   wanderRadius: 8
   wanderTimer: 4
   attackRange: 1.5

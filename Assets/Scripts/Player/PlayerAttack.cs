@@ -93,7 +93,8 @@ public class PlayerAttack : MonoBehaviour
         if (IsAtTarget() && attackTimer <= 0 && hasClicked)
         {
             hasClicked = false;
-            enemyAI.TakeDamage(playerData.baseAttackDamage);
+            var damage = playerData.baseAttackDamage + ((float)playerData.strength / 100);
+            enemyAI.TakeDamage(damage);
             animator.SetTrigger("swing");
             attackTimer = playerData.attackSpeed;
             agent.destination = transform.position;
