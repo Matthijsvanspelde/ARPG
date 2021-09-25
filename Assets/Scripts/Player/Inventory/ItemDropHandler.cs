@@ -49,7 +49,7 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
         // Change sprite
         if (draggedFromSlot.Items[0].GetComponent<EquipmentItem>() != null && draggedFromSlot.GetComponent<EquipmentSlot>() != null)
         {
-            equipment.SetDefaultSprite(draggedFromSlot.Items[0].GetComponent<EquipmentItem>().equipmentCategory);
+            equipment.Unequip(draggedFromSlot.Items[0]);
         }
 
         // Remove items from old list
@@ -100,10 +100,10 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
         draggedFromSlot.UpdateCountText();
         draggedFromSlot.SetIcon(draggedFromSlot.Items[0].GetComponent<Item>().icon);
 
-        // Change sprite
-        if (draggedFromSlot.Items[0].GetComponent<EquipmentItem>() != null && draggedFromSlot.GetComponent<EquipmentSlot>() != null)
+        // Equip item
+        if (draggedFromSlot.Items[0].GetComponent<Item>().itemCategory == ItemEnum.Equipment && draggedFromSlot.GetComponent<EquipmentSlot>() != null)
         {
-            equipment.SetArmorSprite(draggedFromSlot.Items[0].GetComponent<EquipmentItem>());
+            equipment.Swap(draggedFromSlot.Items[0], slot.Items[0]);
         }         
     }
 }

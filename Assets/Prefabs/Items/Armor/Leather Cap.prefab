@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4525382160970955190}
+  - component: {fileID: 1342697630391992488}
   - component: {fileID: 5979195175528232585}
   - component: {fileID: 914891940197958550}
   - component: {fileID: 1711896839965135729}
@@ -66,6 +67,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1342697630391992488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5105843026319306304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac16bbd0166f644cbf73606324d99ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 11400000, guid: 26f3f54450344bd4fbbd79e8d35f13aa, type: 2}
+  rarity: {fileID: 11400000, guid: 62e476dba34a839438155c117e57f33e, type: 2}
+  description: Leather cap
+  itemCategory: 3
+  stackSize: 0
+  icon: {fileID: 21300000, guid: 901a18eae5fec1747b3666ed5a37a1c1, type: 3}
+  dropChance: 10
+  itemName: {fileID: 2388727174461211263}
+  canvas: {fileID: 2388727174669711237}
 --- !u!114 &5979195175528232585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,19 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1777cfc4c28834e92b16092c922b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 11400000, guid: 26f3f54450344bd4fbbd79e8d35f13aa, type: 2}
-  rarity: {fileID: 11400000, guid: 62e476dba34a839438155c117e57f33e, type: 2}
-  description: Made from fine leather.
-  itemCategory: 3
-  stackSize: 1
-  icon: {fileID: 21300000, guid: 901a18eae5fec1747b3666ed5a37a1c1, type: 3}
-  dropChance: 20
-  itemName: {fileID: 2388727174461211263}
-  canvas: {fileID: 2388727174669711237}
   equipmentCategory: 0
-  spriteObjects:
+  sprites:
   - {fileID: 5231418463298981517}
   strength: 1
+  dexterity: 0
   health: 1
   armor: 4
 --- !u!212 &914891940197958550
@@ -271,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001063, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001063, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_LocalPosition.x

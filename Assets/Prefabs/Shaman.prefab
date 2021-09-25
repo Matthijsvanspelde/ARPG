@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 3790484493534102409}
   - component: {fileID: 3790484493534102423}
   - component: {fileID: 1975518961}
+  - component: {fileID: 56368348490744743}
   - component: {fileID: 842972330}
   m_Layer: 7
   m_Name: Shaman
@@ -413,14 +414,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 8
   maxHealth: 8
+  attackSpeed: 2
   attackDamage: 2
   experienceReward: 10
   wanderRadius: 8
   wanderTimer: 4
   attackRange: 8
+  attackTimer: 0
   healthBar: {fileID: 0}
+  agent: {fileID: 0}
+  fov: {fileID: 0}
+  animator: {fileID: 0}
+  isWandering: 1
+  isAttacking: 0
   isDead: 0
   player: {fileID: 0}
+--- !u!114 &56368348490744743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3790484493534102415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de48d011b99d9843b5bda400d22b04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 4708551190672905249, guid: a67229dcd5abcb64284e39e8194c1d9b, type: 3}
+  projectileStart: {fileID: 2854740183420688275}
 --- !u!114 &842972330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,6 +1083,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &6725865223341572883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2854740183420688275}
+  m_Layer: 7
+  m_Name: Projectile Start Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2854740183420688275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6725865223341572883}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.074, y: 1.031, z: -0.107}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5121054907527033724}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7050245429414752992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,7 +1322,8 @@ Transform:
   m_LocalRotation: {x: 0.06644311, y: -0.9913942, z: 0.05126567, w: -0.10047237}
   m_LocalPosition: {x: 0.323, y: 0.099, z: -0.029}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2854740183420688275}
   m_Father: {fileID: 5685442505934388247}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 12.953, y: 180, z: 59.133}

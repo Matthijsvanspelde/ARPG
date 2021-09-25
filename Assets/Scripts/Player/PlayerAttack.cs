@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private float stoppingDistance = 0.8f;
     [SerializeField]
-    PlayerStatsScriptableObject playerData;    
+    PlayerAttributes playerAttributes;
     private GameObject target;
     private float attackTimer = 0f;
     private bool hasClicked = false;
@@ -93,10 +93,10 @@ public class PlayerAttack : MonoBehaviour
         if (IsAtTarget() && attackTimer <= 0 && hasClicked)
         {
             hasClicked = false;
-            var damage = playerData.baseAttackDamage + ((float)playerData.strength / 100);
+            var damage = playerAttributes.attributes.attackDamage + playerAttributes.AttackDamageBonus + ((float)(playerAttributes.attributes.strength + playerAttributes.StrengthBonus) / 100);
             enemyAI.TakeDamage(damage);
             animator.SetTrigger("swing");
-            attackTimer = playerData.attackSpeed;
+            attackTimer = playerAttributes.attributes.attackSpeed + playerAttributes.AttackSpeedBonus - ((float)(playerAttributes.attributes.dexterity + playerAttributes.DexterityBonus) / 100);
             agent.destination = transform.position;
             if (enemyAI.isDead)
             {

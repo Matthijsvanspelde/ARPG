@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4525382160970955190}
+  - component: {fileID: 8689716897286922251}
   - component: {fileID: 6611157174245882792}
+  - component: {fileID: 5022954769824459299}
   - component: {fileID: 914891940197958550}
   - component: {fileID: 1711896839965135729}
   m_Layer: 10
@@ -35,6 +37,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8689716897286922251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5105843026319306304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac16bbd0166f644cbf73606324d99ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 11400000, guid: bf2c6ebcf659ae54fba1dcf574dd348b, type: 2}
+  rarity: {fileID: 11400000, guid: dcac55179e2b30740bdf7b08bb83b740, type: 2}
+  description: Sword
+  itemCategory: 3
+  stackSize: 0
+  icon: {fileID: 21300000, guid: dd25b4f1895c3674ba2cf82bd054f72e, type: 3}
+  dropChance: 40
+  itemName: {fileID: 2388727174461211263}
+  canvas: {fileID: 2388727174669711237}
 --- !u!114 &6611157174245882792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,21 +70,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1777cfc4c28834e92b16092c922b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 11400000, guid: bf2c6ebcf659ae54fba1dcf574dd348b, type: 2}
-  rarity: {fileID: 11400000, guid: dcac55179e2b30740bdf7b08bb83b740, type: 2}
-  description: It's a bit rusty.
-  itemCategory: 3
-  stackSize: 1
-  icon: {fileID: 21300000, guid: dd25b4f1895c3674ba2cf82bd054f72e, type: 3}
-  dropChance: 40
-  itemName: {fileID: 2388727174461211263}
-  canvas: {fileID: 2388727174669711237}
   equipmentCategory: 7
-  spriteObjects:
+  sprites:
   - {fileID: 8860364702203919052}
   strength: 5
+  dexterity: 0
   health: 2
-  armor: 14
+  armor: 0
+--- !u!114 &5022954769824459299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5105843026319306304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca86b9c08460874ab3b965b25c8c9f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  attackDamage: 2
 --- !u!212 &914891940197958550
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -124,7 +153,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.595, y: 0.888, z: 0.2}
+  m_Size: {x: 2.1989582, y: 0.437, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7753085427379215839
 GameObject:
@@ -168,7 +197,7 @@ GameObject:
   - component: {fileID: 4563111383957338328}
   - component: {fileID: 5982575204516115418}
   m_Layer: 10
-  m_Name: Helm
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001063, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001063, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_LocalPosition.x

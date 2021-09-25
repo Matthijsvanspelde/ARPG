@@ -87,6 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5617936642225974350}
+  - component: {fileID: 8480056556810541396}
   - component: {fileID: 2919463857588334160}
   - component: {fileID: 9190107250810263150}
   - component: {fileID: 7276244275919832713}
@@ -113,6 +114,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8480056556810541396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882122305160969144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac16bbd0166f644cbf73606324d99ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 11400000, guid: 5488137978104ca428078b806577c1a8, type: 2}
+  rarity: {fileID: 11400000, guid: 62e476dba34a839438155c117e57f33e, type: 2}
+  description: Shirt
+  itemCategory: 3
+  stackSize: 0
+  icon: {fileID: 21300000, guid: db39e662d57c5ca4e8492aa03689a45e, type: 3}
+  dropChance: 20
+  itemName: {fileID: 5917164970499561351}
+  canvas: {fileID: 5917164970442039933}
 --- !u!114 &2919463857588334160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,21 +147,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1777cfc4c28834e92b16092c922b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 11400000, guid: 5488137978104ca428078b806577c1a8, type: 2}
-  rarity: {fileID: 11400000, guid: 62e476dba34a839438155c117e57f33e, type: 2}
-  description: It's a shirt.
-  itemCategory: 3
-  stackSize: 1
-  icon: {fileID: 21300000, guid: db39e662d57c5ca4e8492aa03689a45e, type: 3}
-  dropChance: 40
-  itemName: {fileID: 5917164970499561351}
-  canvas: {fileID: 5917164970442039933}
   equipmentCategory: 1
-  spriteObjects:
+  sprites:
   - {fileID: 706465107257962292}
   - {fileID: 5999525853556192239}
   - {fileID: 5121046956962524629}
   strength: 1
+  dexterity: 0
   health: 2
   armor: 8
 --- !u!212 &9190107250810263150

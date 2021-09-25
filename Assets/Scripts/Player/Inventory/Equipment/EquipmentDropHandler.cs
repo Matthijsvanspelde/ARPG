@@ -21,8 +21,8 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
         {
             return;
         }
-        EquipmentItem equipmentItem = draggedFromSlot.Items[0].GetComponent<EquipmentItem>();
-        if (equipmentItem.equipmentCategory == equipmentSlot.slotCategory)
+        GameObject equipmentItem = draggedFromSlot.Items[0];
+        if (equipmentItem.GetComponent<EquipmentItem>().equipmentCategory == equipmentSlot.slotCategory)
         {
             if (equipmentSlot.Items.Count == 0)
             {
@@ -35,13 +35,13 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
         }
     }
 
-    private void AddItem(Slot draggedFromSlot, EquipmentItem equipmentItem) 
+    private void AddItem(Slot draggedFromSlot, GameObject equipmentItem) 
     {
         // Add items to new list
         equipmentSlot.Items = draggedFromSlot.Items.ToList();
         equipmentSlot.UpdateCountText();
         equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().icon);
-        equipment.SetArmorSprite(equipmentItem);
+        equipment.Equip(equipmentItem);
 
         // Remove items from old list
         draggedFromSlot.Items = new List<GameObject>();
@@ -49,7 +49,7 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
         draggedFromSlot.SetIcon(null);
     }
 
-    private void SwapItem(Slot draggedFromSlot, EquipmentItem equipmentItem) 
+    private void SwapItem(Slot draggedFromSlot, GameObject equipmentItem) 
     {
         // Cache items from first list to put in the second list
         List<GameObject> itemsSecondList = new List<GameObject>();
@@ -60,12 +60,14 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
         equipmentSlot.UpdateCountText();
         equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().icon);
 
-        // Change sprite
-        equipment.SetArmorSprite(equipmentItem);
+        // Set attributes
+        equipment.Swap(equipmentItem, draggedFromSlot.Items[0]);
 
         // Add items to second list
         draggedFromSlot.Items = itemsSecondList.ToList();
-        draggedFromSlot.UpdateCountText();
+        draggedFromSlot.UpdateCountText();      
         draggedFromSlot.SetIcon(draggedFromSlot.Items[0].GetComponent<Item>().icon);
+        
+        
     }
 }

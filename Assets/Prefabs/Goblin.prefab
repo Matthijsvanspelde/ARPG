@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 3790484493534102409}
   - component: {fileID: 3790484493534102423}
   - component: {fileID: 1975518961}
+  - component: {fileID: 798912375561856070}
   - component: {fileID: 842972330}
   m_Layer: 7
   m_Name: Goblin
@@ -414,14 +415,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 8
   maxHealth: 8
+  attackSpeed: 2
   attackDamage: 2
   experienceReward: 10
   wanderRadius: 8
   wanderTimer: 4
   attackRange: 1.5
+  attackTimer: 0
   healthBar: {fileID: 0}
+  agent: {fileID: 0}
+  fov: {fileID: 0}
+  animator: {fileID: 0}
+  isWandering: 1
+  isAttacking: 0
   isDead: 0
   player: {fileID: 0}
+--- !u!114 &798912375561856070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3790484493534102415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af543349c77d4ad478db74e199a0d836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &842972330
 MonoBehaviour:
   m_ObjectHideFlags: 0

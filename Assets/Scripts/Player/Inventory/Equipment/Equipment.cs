@@ -64,9 +64,16 @@ public class Equipment : MonoBehaviour
     private SpriteRenderer offHand;
     [SerializeField]
     private Sprite defaultOffHand;
+    private PlayerAttributes playerAttributes;
 
-    public void SetDefaultSprite(EquimentSlotEnum equimentSlotEnum) 
+    private void Start()
     {
+        playerAttributes = GetComponent<PlayerAttributes>();
+    }
+
+    public void SetDefaultSprite(GameObject item) 
+    {
+        EquimentSlotEnum equimentSlotEnum = item.GetComponent<EquipmentItem>().equipmentCategory;
         switch (equimentSlotEnum)
         {
             case EquimentSlotEnum.Helm:
@@ -105,9 +112,10 @@ public class Equipment : MonoBehaviour
         }
     }
 
-    public void SetArmorSprite(EquipmentItem item) 
+    public void SetArmorSprite(GameObject item) 
     {
-        foreach (var spriteObject in item.spriteObjects)
+        EquipmentItem equipmentItem = item.GetComponent<EquipmentItem>();
+        foreach (var spriteObject in equipmentItem.sprites)
         {
             SpriteResolver spriteResolver = spriteObject.GetComponent<SpriteResolver>();
             switch (spriteResolver.category)
@@ -156,5 +164,24 @@ public class Equipment : MonoBehaviour
             }
         }
         
+    }
+
+    public void Equip(GameObject item) 
+    {
+        SetArmorSprite(item);
+        playerAttributes.AddAttributes(item);
+    }
+
+    public void Unequip(GameObject item)
+    {
+        SetDefaultSprite(item);
+        playerAttributes.RemoveAttributes(item);
+    }
+
+    public void Swap(GameObject newItem, GameObject oldItem)
+    {
+        SetArmorSprite(newItem);
+        playerAttributes.AddAttributes(newItem);
+        playerAttributes.RemoveAttributes(oldItem);
     }
 }

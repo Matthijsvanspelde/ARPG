@@ -9,37 +9,34 @@ public class EnemyAI : MonoBehaviour
     public float health;
     [SerializeField]
     public float maxHealth = 8;   
-    private float attackSpeed = 2;
-    [SerializeField]
-    private float attackDamage = 2;
+    public float attackSpeed = 2;
+    public float attackDamage = 2;
     [SerializeField]
     private int experienceReward = 5;
 
     [Header("AI")]
     public float wanderRadius;
     public float wanderTimer;
-    [SerializeField]
-    private float attackRange = 0.8f;
+    public float attackRange = 0.8f;
     private float timer;
-    private float attackTimer = 0f;
+    public float attackTimer = 0f;
     public EnemyHealthBar healthBar;
     private Loot loot;
 
-    private NavMeshAgent agent;   
-    private FieldOfView fov;
-    private Animator animator;
+    public NavMeshAgent agent;   
+    public FieldOfView fov;
+    public Animator animator;
 
     //States
-    private bool isWandering = true;
-    private bool isAttacking = false;
+    public bool isWandering = true;
+    public bool isAttacking = false;
     public bool isDead = false;
 
-    [SerializeField]
-    private Player player;
+    public PlayerAttributes player;
 
     private void Awake()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();
+        player = GameObject.Find("Player").GetComponent<PlayerAttributes>();
         healthBar = GameObject.Find("Canvas/Enemy Health Bar").GetComponent<EnemyHealthBar>();
         healthBar.SetMaxValue(maxHealth);
         health = maxHealth;
@@ -66,10 +63,6 @@ public class EnemyAI : MonoBehaviour
         {
             Wander();
         }
-        else if (isAttacking)
-        {
-            Attack();
-        }      
     }
 
     private void Wander()
@@ -86,29 +79,6 @@ public class EnemyAI : MonoBehaviour
         {
             isWandering = false;
             isAttacking = true;
-        }
-    }
-
-    private void Attack()
-    {
-        agent.stoppingDistance = attackRange;
-        if (fov.visibleTargets.Count > 0)
-        {
-            agent.destination = fov.visibleTargets[0].transform.position;
-        }
-        else
-        {
-            isWandering = true;
-            isAttacking = false;
-        }
-        if (IsAtTarget() && isAttacking && attackTimer <= 0)
-        {
-            attackTimer = attackSpeed;
-            player.TakeDamage(attackDamage);
-            if (animator != null)
-            {
-                animator.SetTrigger("attack");
-            }          
         }
     }
 
@@ -184,7 +154,7 @@ public class EnemyAI : MonoBehaviour
     }
 
 
-    private bool IsAtTarget()
+    public bool IsAtTarget()
     {
         if (fov.visibleTargets.Count > 0)
         {

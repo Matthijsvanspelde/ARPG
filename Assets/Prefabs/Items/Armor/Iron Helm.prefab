@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4525382160970955190}
+  - component: {fileID: 2739727637547456816}
   - component: {fileID: 6611157174245882792}
   - component: {fileID: 914891940197958550}
   - component: {fileID: 1711896839965135729}
@@ -35,6 +36,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2739727637547456816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5105843026319306304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac16bbd0166f644cbf73606324d99ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 11400000, guid: 46143e4dfcc720d4984320b51d456717, type: 2}
+  rarity: {fileID: 11400000, guid: dcac55179e2b30740bdf7b08bb83b740, type: 2}
+  description: Helm
+  itemCategory: 3
+  stackSize: 0
+  icon: {fileID: 21300000, guid: 1f36ca52a7e05d040b9294d38a4480c4, type: 3}
+  dropChance: 20
+  itemName: {fileID: 2388727174461211263}
+  canvas: {fileID: 2388727174669711237}
 --- !u!114 &6611157174245882792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,19 +69,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1777cfc4c28834e92b16092c922b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 11400000, guid: 46143e4dfcc720d4984320b51d456717, type: 2}
-  rarity: {fileID: 11400000, guid: dcac55179e2b30740bdf7b08bb83b740, type: 2}
-  description: It's a bit rusty.
-  itemCategory: 3
-  stackSize: 1
-  icon: {fileID: 21300000, guid: 1f36ca52a7e05d040b9294d38a4480c4, type: 3}
-  dropChance: 20
-  itemName: {fileID: 2388727174461211263}
-  canvas: {fileID: 2388727174669711237}
   equipmentCategory: 0
-  spriteObjects:
+  sprites:
   - {fileID: 8860364702203919052}
   strength: 5
+  dexterity: 0
   health: 2
   armor: 14
 --- !u!212 &914891940197958550
@@ -271,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001063, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001063, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_LocalPosition.x
