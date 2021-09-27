@@ -63,10 +63,8 @@ public class TileGenerator : MonoBehaviour
             else
             {
                 PlaceSingleTile(position, totalWeight);
-            }
-                      
-        }
-        
+            }                      
+        }       
     }
 
     internal void PlaceSingleWall(Vector2Int position, string binaryType)

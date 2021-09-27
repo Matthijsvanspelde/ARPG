@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5685442505934388247}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2379259326666093899}
   - component: {fileID: 3555616777688007572}
   - component: {fileID: 1782443700}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 4605010718647638366}
   - component: {fileID: 8336696795222971343}
   - component: {fileID: 9155523733854921959}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: VisibilityChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4189251718494805163}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6432323541842249471}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 1975518961}
   - component: {fileID: 798912375561856070}
   - component: {fileID: 842972330}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Goblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7137831577293639222}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9146435884634348313}
   - component: {fileID: 5176105050086817426}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Scimitar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +588,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6283857278019675226}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 5493736732332525252}
   - component: {fileID: 5977292611524286829}
   - component: {fileID: 1364594301}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 7567375735542658924}
   - component: {fileID: 8921976309413595451}
   - component: {fileID: 1701203319}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 3757342739541598270}
   - component: {fileID: 8297214959887431708}
   - component: {fileID: 2113123610}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7038430646131809795}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1003,7 @@ GameObject:
   - component: {fileID: 5509362846128470903}
   - component: {fileID: 7100044145160008355}
   - component: {fileID: 998920864}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1117,7 +1117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 890989129666813743}
   - component: {fileID: 6695043974063552025}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1173,7 +1173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 565865194956200774}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1206,7 +1206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1694670586962226277}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 252059517212162624}
   - component: {fileID: 8168477199230668180}
   - component: {fileID: 576613129}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1356,7 +1356,7 @@ GameObject:
   - component: {fileID: 5121054907527033724}
   - component: {fileID: 6889523375151090907}
   - component: {fileID: 1725992823}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Scimitar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1449,7 +1449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4129491606102308660}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1479,7 +1479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4268565067989878860}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1509,7 +1509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3795458307683889353}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: bone_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}

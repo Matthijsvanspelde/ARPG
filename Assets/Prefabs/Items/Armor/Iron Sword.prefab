@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 1
-  attackDamage: 2
+  attackDamage: 8
 --- !u!212 &914891940197958550
 SpriteRenderer:
   m_ObjectHideFlags: 0

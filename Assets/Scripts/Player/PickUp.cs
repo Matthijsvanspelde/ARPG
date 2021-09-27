@@ -27,7 +27,7 @@ public class PickUp : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Gold") && !EventSystem.current.IsPointerOverGameObject())
         {
-            inventory.gold += other.gameObject.GetComponent<Gold>().goldAmount;
+            inventory.inventoryData.gold += other.gameObject.GetComponent<Gold>().goldAmount;
             inventory.UpdateGoldText();
             Destroy(other.gameObject);
         }

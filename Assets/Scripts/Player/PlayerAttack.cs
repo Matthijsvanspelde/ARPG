@@ -40,15 +40,14 @@ public class PlayerAttack : MonoBehaviour
         int mask = 1 << 9;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButton(0))
-        {
-            
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask) && hit.collider.CompareTag("Enemy") && !EventSystem.current.IsPointerOverGameObject())
+        {          
+            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Enemy") && !EventSystem.current.IsPointerOverGameObject())
             {
                 animator.SetBool("isWalking", true);
                 target = hit.transform.gameObject;
                 enemyAI = hit.transform.gameObject.GetComponent<EnemyAI>();
                 agent.stoppingDistance = stoppingDistance;
-                
+                SetSpriteDirection();
                 enemyAI.SetHealthBar();
                 enemyAI.healthBar.SetNameTag(target.name);
                 enemyAI.healthBar.SetVisibility(true);
@@ -124,5 +123,18 @@ public class PlayerAttack : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private void SetSpriteDirection()
+    {
+        float relativePosition = target.transform.position.x - transform.position.x;
+        if (relativePosition > 0f)
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
+        else if (relativePosition < 0f)
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
     }
 }
