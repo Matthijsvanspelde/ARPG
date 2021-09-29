@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class DialogueOption : MonoBehaviour
+[CreateAssetMenu(fileName = "DialogueOption", menuName = "Dialogue/DialogueOption", order = 2)]
+public class DialogueOption : ScriptableObject
 {
-    [SerializeField]
-    private DialogueNode dialogueNode;
+    public string optionText;
+    public DialogueNode nextDialogueNode;
 }

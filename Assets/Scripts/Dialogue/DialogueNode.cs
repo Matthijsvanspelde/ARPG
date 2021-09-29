@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueNode : MonoBehaviour
+[CreateAssetMenu(fileName = "DialogueNode", menuName = "Dialogue/DialogueNode", order = 1)]
+public class DialogueNode : ScriptableObject
 {
-    [SerializeField]
-    private string dialogue;
-    [SerializeField]
-    private List<DialogueOption> dialogueOptions;
+    [TextArea]
+    public string dialogue;
+    public List<DialogueOption> dialogueOptions;
 }

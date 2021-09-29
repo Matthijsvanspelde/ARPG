@@ -7,8 +7,24 @@ public class Interaction : MonoBehaviour
     public void StartInteraction(GameObject player) 
     {
         Debug.Log("Hello traveler!");
-        float dist = Vector3.Distance(player.transform.position, transform.position);
+        SetSpriteDirection(player.transform.position.x);
+    }
 
-        Debug.Log(dist);
+    public void NextDialogueNode() 
+    { 
+        
+    }
+
+    private void SetSpriteDirection(float playerXPosition)
+    {
+        float relativePosition = playerXPosition - transform.position.x;
+        if (relativePosition > 0f)
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
+        else if (relativePosition < 0f)
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
     }
 }

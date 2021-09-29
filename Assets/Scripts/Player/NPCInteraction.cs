@@ -10,6 +10,7 @@ public class NPCInteraction : MonoBehaviour
     private float stoppingDistance = 0.8f;
     private GameObject target;
     private NavMeshAgent agent;
+    private bool isInteracting = false;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class NPCInteraction : MonoBehaviour
             else
             {
                 target = null;
+                isInteracting = false;
             }
         }
     }
@@ -51,9 +53,14 @@ public class NPCInteraction : MonoBehaviour
 
     private void Interact() 
     {
-        if (IsAtTarget())
+        if (IsAtTarget() && !isInteracting)
         {
-            target.GetComponent<Interaction>().StartInteraction(gameObject);
+            isInteracting = true;
+            target.GetComponent<Dialogue>().Talk(gameObject);
+        }
+        if (Input.GetKeyDown(KeyCode.X) && isInteracting)
+        {
+            
         }
     }
 
