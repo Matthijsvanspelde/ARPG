@@ -14,9 +14,14 @@ public class Inventory : MonoBehaviour
     private TMP_Text goldText;
     public bool IsToggled { get => isToggled; private set => isToggled = value; }
 
-    void Start()
+    private void Awake()
     {
         IsToggled = false;
+        goldText.text = inventoryData.gold.ToString();
+    }
+
+    void Start()
+    {        
         inventoryPanel.SetActive(false);
     }
 

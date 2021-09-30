@@ -11,6 +11,7 @@ TagManager:
   - NPC
   - Wall
   - Stairs
+  - SceneLoader
   layers:
   - Default
   - TransparentFX
