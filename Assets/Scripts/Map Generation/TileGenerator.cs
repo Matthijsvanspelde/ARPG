@@ -35,6 +35,7 @@ public class TileGenerator : MonoBehaviour
         NavMesh.RemoveAllNavMeshData();
         navMeshSurface.RemoveData();
         navMeshSurface.BuildNavMesh();
+        GameObject.Find("Player").transform.position = new Vector3(0,0,0);
     }
 
     public void PlaceFloorTiles(IEnumerable<Vector2Int> floorPositions) 

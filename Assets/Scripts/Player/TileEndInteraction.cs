@@ -9,9 +9,7 @@ public class TileEndInteraction : MonoBehaviour
 {
     private GameObject target;
     private NavMeshAgent agent;
-    [SerializeField]
     private TileGenerator tileGenerator;
-    [SerializeField]
     private AbstractDungeonGenerator dungeonGenerator;
     private bool hasGenerated = false;
     [SerializeField]
@@ -34,7 +32,9 @@ public class TileEndInteraction : MonoBehaviour
         if (IsAtTarget() && !hasGenerated)
         {
             animator.SetTrigger("Fade");
+            tileGenerator = GameObject.Find("Tile Builder").GetComponent<TileGenerator>();
             tileGenerator.SetTileSetData();
+            dungeonGenerator = GameObject.Find("Dungeon Generator").GetComponent<CorridorFirst>();
             dungeonGenerator.GenerateDungeon();
             gameObject.transform.position = new Vector3(0, transform.position.y, 0);
             hasGenerated = true;
