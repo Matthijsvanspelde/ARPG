@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Interaction : MonoBehaviour
 {
+
+
     public void StartInteraction(GameObject player) 
     {
+
         Debug.Log("Hello traveler!");
         SetSpriteDirection(player.transform.position.x);
     }

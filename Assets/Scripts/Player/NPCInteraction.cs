@@ -37,6 +37,10 @@ public class NPCInteraction : MonoBehaviour
             }
             else
             {
+                if (target != null)
+                {
+                    target.GetComponent<Dialogue>().EndDialogue();
+                }               
                 target = null;
                 isInteracting = false;
             }
@@ -56,11 +60,7 @@ public class NPCInteraction : MonoBehaviour
         if (IsAtTarget() && !isInteracting)
         {
             isInteracting = true;
-            target.GetComponent<Dialogue>().Talk(gameObject);
-        }
-        if (Input.GetKeyDown(KeyCode.X) && isInteracting)
-        {
-            
+            target.GetComponent<Dialogue>().StartDialogue(gameObject);
         }
     }
 
@@ -70,8 +70,8 @@ public class NPCInteraction : MonoBehaviour
         {
             
             float dist = Vector3.Distance(target.transform.position, transform.position);
-            
-            if (dist <= stoppingDistance)
+            Debug.Log(dist);
+            if (dist <= stoppingDistance + 0.1)
             {
                 return true;
             }

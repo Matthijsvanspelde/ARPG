@@ -72,10 +72,10 @@ MonoBehaviour:
   equipmentCategory: 0
   sprites:
   - {fileID: 8860364702203919052}
-  strength: 5
-  dexterity: 0
-  health: 2
-  armor: 14
+  strength: 12
+  dexterity: 2
+  health: 4
+  armor: 34
 --- !u!212 &914891940197958550
 SpriteRenderer:
   m_ObjectHideFlags: 0

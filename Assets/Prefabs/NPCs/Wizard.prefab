@@ -1600,6 +1600,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingDialogueNode: {fileID: 11400000, guid: 88f0821203dcac74c830b80653f9ee57, type: 2}
+  dialogueText: {fileID: 0}
+  canvas: {fileID: 0}
+  rig: {fileID: 6228918024742999665}
 --- !u!1 &8614894866125640351
 GameObject:
   m_ObjectHideFlags: 0
