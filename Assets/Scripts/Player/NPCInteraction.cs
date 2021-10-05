@@ -64,6 +64,11 @@ public class NPCInteraction : MonoBehaviour
         }
     }
 
+    public void ChooseOption() 
+    { 
+        
+    }
+
     private bool IsAtTarget()
     {
         if (target != null)

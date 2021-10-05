@@ -26,6 +26,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;   
     public FieldOfView fov;
     public Animator animator;
+    private HitFeedback hitFeedback;
 
     //States
     public bool isWandering = true;
@@ -36,6 +37,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
+        hitFeedback = GetComponent<HitFeedback>();
         player = GameObject.Find("Player").GetComponent<PlayerAttributes>();
         healthBar = GameObject.Find("Canvas/Enemy Health Bar").GetComponent<EnemyHealthBar>();
         healthBar.SetMaxValue(maxHealth);
@@ -108,6 +110,7 @@ public class EnemyAI : MonoBehaviour
     public void TakeDamage(float damage) 
     {
         health -= damage;
+        hitFeedback.Flash();
         SetHealthBar();
         if (health <= 0)
         {

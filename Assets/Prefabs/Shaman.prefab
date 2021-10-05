@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 1975518961}
   - component: {fileID: 56368348490744743}
   - component: {fileID: 842972330}
+  - component: {fileID: 1530919506074351891}
   m_Layer: 9
   m_Name: Shaman
   m_TagString: Enemy
@@ -467,6 +468,27 @@ MonoBehaviour:
   minGoldDrop: 1
   maxGoldDrop: 20
   goldPrefab: {fileID: 4978973667860890126, guid: 942b77eb0ee80f0409e657ad2885f370, type: 3}
+--- !u!114 &1530919506074351891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3790484493534102415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f336cb2d131f1654380942163a718e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0.6933962, b: 0.6933962, a: 0}
+  flashTime: 0.1
+  renderers:
+  - {fileID: 2379259326666093899}
+  - {fileID: 5509362846128470903}
+  - {fileID: 3757342739541598270}
+  - {fileID: 5493736732332525252}
+  - {fileID: 7567375735542658924}
+  - {fileID: 252059517212162624}
 --- !u!1 &4052306421782089453
 GameObject:
   m_ObjectHideFlags: 0

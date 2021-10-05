@@ -2,20 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
     [SerializeField]
     private DialogueNode startingDialogueNode;
-    private DialogueNode currentDialogueNode;
+    private DialogueNode currentDialogueNode;   
     [SerializeField]
-    private TMP_Text dialogueText;
+    private Transform rig;
+
+    [Header("UI")]
     [SerializeField]
     private GameObject canvas;
     [SerializeField]
+    private TMP_Text dialogueText;
+    [SerializeField]
     private TMP_Text nameTag;
     [SerializeField]
-    private Transform rig;
+    private Button option1Button;
+    [SerializeField]
+    private Button option2Button;
+    [SerializeField]
+    private Button option3Button;
 
     private void Awake()
     {
@@ -25,17 +34,35 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue(GameObject player)
     {
+        SetDialogueText();
+        SetSpriteDirection(player.transform.position.x);
+    }
+
+    private void SetDialogueText() 
+    {
         if (canvas != null)
         {
             canvas.SetActive(true);
             nameTag.text = gameObject.name;
             dialogueText.text = currentDialogueNode.dialogue;
-            foreach (var option in currentDialogueNode.dialogueOptions)
-            {
-                Debug.Log(option.optionText + " - " + option.nextDialogueNode.name);
-            }            
+            SetDialogueOptions();
         }
-        SetSpriteDirection(player.transform.position.x);
+    }
+
+    private void SetDialogueOptions() 
+    {
+        if (currentDialogueNode.option1 != null)
+        {
+            option1Button.GetComponentInChildren<TMP_Text>().text = currentDialogueNode.option1.optionText;
+        }
+        if (currentDialogueNode.option2 != null)
+        {
+            option2Button.GetComponentInChildren<TMP_Text>().text = currentDialogueNode.option2.optionText;
+        }
+        if (currentDialogueNode.option3 != null)
+        {
+            option3Button.GetComponentInChildren<TMP_Text>().text = currentDialogueNode.option3.optionText;
+        }
     }
 
     public void EndDialogue() 
