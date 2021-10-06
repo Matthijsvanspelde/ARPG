@@ -61,7 +61,7 @@ public class EquipmentDropHandler : MonoBehaviour, IDropHandler
         equipmentSlot.SetIcon(equipmentSlot.Items[0].GetComponent<Item>().icon);
 
         // Set attributes
-        equipment.Swap(equipmentItem, draggedFromSlot.Items[0]);
+        equipment.Swap(equipmentItem, itemsSecondList[0]);
 
         // Add items to second list
         draggedFromSlot.Items = itemsSecondList.ToList();

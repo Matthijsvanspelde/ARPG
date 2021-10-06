@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6013b0da8f798e6448584ae1df838a8c, type: 3}
   m_Name: StartingNode
   m_EditorClassIdentifier: 
-  dialogue: Hello there
+  dialogue: Greetings traveler, head up north to the dungeon.
   option1: {fileID: 11400000, guid: b970b33117e45724f9f0bc5f5bbcdaa0, type: 2}
   option2: {fileID: 11400000, guid: 337fdbb32bdb63f48b8079e373f3076e, type: 2}
   option3: {fileID: 11400000, guid: 390e4e5ee7cb63641b7ee383d15acbc2, type: 2}

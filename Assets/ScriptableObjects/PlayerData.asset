@@ -15,10 +15,10 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   level: 1
-  currentExperience: 0
+  currentExperience: 10
   maxExperience: 100
   attackSpeed: 1
-  attackDamage: 2
+  attackDamage: 1
   strength: 1
   dexterity: 1
   armor: 1

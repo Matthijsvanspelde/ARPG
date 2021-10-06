@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f6c3fe622709f4596643ebaf365881, type: 3}
   m_Name: StartingNode_Option1
   m_EditorClassIdentifier: 
-  optionText: Lmao
+  optionText: Ok lmao
   nextDialogueNode: {fileID: 11400000, guid: 951cae767bcfdb7449eba3d13113c611, type: 2}

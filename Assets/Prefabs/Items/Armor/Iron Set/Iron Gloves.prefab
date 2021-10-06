@@ -99,7 +99,7 @@ MonoBehaviour:
   itemCategory: 3
   stackSize: 0
   icon: {fileID: 21300000, guid: bae2e19008d7f7f4b97ba82b6ac833bf, type: 3}
-  dropChance: 20
+  dropChance: 30
   itemName: {fileID: 2388727174461211263}
   canvas: {fileID: 2388727174669711237}
 --- !u!114 &6611157174245882792

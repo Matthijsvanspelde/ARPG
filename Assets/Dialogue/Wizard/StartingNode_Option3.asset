@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f6c3fe622709f4596643ebaf365881, type: 3}
   m_Name: StartingNode_Option3
   m_EditorClassIdentifier: 
-  optionText: Hihihi
+  optionText: No
   nextDialogueNode: {fileID: 11400000, guid: c9ff1a436c802374c847bfaa2a643840, type: 2}

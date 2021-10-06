@@ -27,6 +27,9 @@ public class EnemyAI : MonoBehaviour
     public FieldOfView fov;
     public Animator animator;
     private HitFeedback hitFeedback;
+    private DamageNumber damageNumber;
+    [SerializeField]
+    private Transform rig;
 
     //States
     public bool isWandering = true;
@@ -37,6 +40,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
+        damageNumber = GetComponentInChildren<DamageNumber>();
         hitFeedback = GetComponent<HitFeedback>();
         player = GameObject.Find("Player").GetComponent<PlayerAttributes>();
         healthBar = GameObject.Find("Canvas/Enemy Health Bar").GetComponent<EnemyHealthBar>();
@@ -111,6 +115,7 @@ public class EnemyAI : MonoBehaviour
     {
         health -= damage;
         hitFeedback.Flash();
+        damageNumber.Create((int)damage);
         SetHealthBar();
         if (health <= 0)
         {
@@ -148,11 +153,11 @@ public class EnemyAI : MonoBehaviour
         float velocity = agent.destination.x - transform.position.x;
         if (velocity > 0f)
         {
-            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            rig.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
         else if (velocity < 0f)
         {
-            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            rig.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
         }
     }
 
