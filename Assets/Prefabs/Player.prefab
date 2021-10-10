@@ -787,6 +787,7 @@ GameObject:
   - component: {fileID: 1706363630}
   - component: {fileID: 1261195678}
   - component: {fileID: 223142983}
+  - component: {fileID: 555071605}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1007,7 +1008,7 @@ MonoBehaviour:
   armorText: {fileID: 0}
   attackDamageText: {fileID: 0}
   attackSpeedText: {fileID: 0}
-  animator: {fileID: 2629439574581470641}
+  animator: {fileID: 0}
   levelPopupText: {fileID: 0}
 --- !u!114 &662331669
 MonoBehaviour:
@@ -1021,8 +1022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da7aa34a8164ab4187d8849f2ca1bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileGenerator: {fileID: 0}
-  dungeonGenerator: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &1706363630
 MonoBehaviour:
@@ -1061,6 +1060,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04256ccebe583284ea33fd79a3a2209f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &555071605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708094070109168880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d3f99ad920bf64eaf036e5f5f31ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portalPrefab: {fileID: 8756244302293625872, guid: fad58fcaec01fb54ead8e71f89abfa23, type: 3}
 --- !u!1 &2527827920102720090
 GameObject:
   m_ObjectHideFlags: 0

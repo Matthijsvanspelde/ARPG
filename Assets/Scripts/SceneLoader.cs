@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,6 +15,8 @@ public class SceneLoader : MonoBehaviour
     private bool isLoading = false;
     [SerializeField]
     private GameObject loadingScreen;
+    [SerializeField]
+    private Vector3 spawnPoint;
 
     private void Start()
     {
@@ -35,8 +38,14 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene() 
     {
-        loadingScreen.SetActive(true);
-        loadingOperation = SceneManager.LoadSceneAsync(sceneToLoad);
-        isLoading = true;
+        if (!isLoading)
+        {            
+            loadingScreen.SetActive(true);
+            loadingOperation = SceneManager.LoadSceneAsync(sceneToLoad);
+            isLoading = true;
+            GameObject player = GameObject.Find("Player");
+            player.transform.position = spawnPoint;
+            player.GetComponent<NavMeshAgent>().destination = spawnPoint;
+        }       
     }
 }

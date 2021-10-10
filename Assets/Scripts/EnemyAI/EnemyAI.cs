@@ -40,13 +40,17 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
-        damageNumber = GetComponentInChildren<DamageNumber>();
-        hitFeedback = GetComponent<HitFeedback>();
-        player = GameObject.Find("Player").GetComponent<PlayerAttributes>();
         healthBar = GameObject.Find("Canvas/Enemy Health Bar").GetComponent<EnemyHealthBar>();
         healthBar.SetMaxValue(maxHealth);
         health = maxHealth;
         healthBar.SetVisibility(false);
+    }
+
+    private void Start()
+    {
+        damageNumber = GetComponentInChildren<DamageNumber>();
+        hitFeedback = GetComponent<HitFeedback>();
+        player = GameObject.Find("Player").GetComponent<PlayerAttributes>();
     }
 
     // Use this for initialization
@@ -115,7 +119,7 @@ public class EnemyAI : MonoBehaviour
     {
         health -= damage;
         hitFeedback.Flash();
-        damageNumber.Create((int)damage);
+        damageNumber.Create(damage);
         SetHealthBar();
         if (health <= 0)
         {

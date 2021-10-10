@@ -12,7 +12,7 @@ public class DamageNumberUI : MonoBehaviour
         damageText = GetComponent<TMP_Text>();
     }
 
-    public void SetValue(int value) 
+    public void SetValue(float value) 
     {
         damageText.text = value.ToString();
     }

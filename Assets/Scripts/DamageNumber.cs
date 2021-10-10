@@ -7,7 +7,7 @@ public class DamageNumber : MonoBehaviour
     [SerializeField]
     private GameObject numberPrefab;
 
-    public void Create(int damage) 
+    public void Create(float damage) 
     {
         GameObject damageNumber = Instantiate(numberPrefab, transform);
         DamageNumberUI damageNumberUI = damageNumber.GetComponent<DamageNumberUI>();

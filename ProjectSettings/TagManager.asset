@@ -13,6 +13,8 @@ TagManager:
   - Stairs
   - SceneLoader
   - Dialogue
+  - PlayerCanvas
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

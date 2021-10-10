@@ -6,7 +6,6 @@ public class SceneLoaderInteraction : MonoBehaviour
 {
     private NavMeshAgent agent;
     private GameObject target;
-    private bool isLoading = false;
 
     void Start()
     {
@@ -21,9 +20,8 @@ public class SceneLoaderInteraction : MonoBehaviour
 
     private void GoToNewScene() 
     {
-        if (IsAtTarget() && !isLoading)
+        if (IsAtTarget())
         {
-            isLoading = true;
             target.GetComponent<SceneLoader>().LoadScene();
         }
     }
@@ -52,7 +50,7 @@ public class SceneLoaderInteraction : MonoBehaviour
         if (target != null)
         {
             float dist = Vector3.Distance(target.transform.position, transform.position);
-            if (dist <= 0.5)
+            if (dist <= 1.1)
             {
                 return true;
             }
