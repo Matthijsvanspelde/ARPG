@@ -15,6 +15,7 @@ TagManager:
   - Dialogue
   - PlayerCanvas
   - SpawnPoint
+  - WallDetector
   layers:
   - Default
   - TransparentFX
