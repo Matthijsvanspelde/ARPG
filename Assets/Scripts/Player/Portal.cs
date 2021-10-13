@@ -19,15 +19,15 @@ public class Portal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Place();
-    }
-
-    private void Place() 
-    {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Destroy(instantiatedPortal);
-            instantiatedPortal = Instantiate(portalPrefab, new Vector3(transform.position.x, portalPrefab.transform.position.y, transform.position.z), Quaternion.identity);
+            Place();
         }
+    }
+
+    public void Place() 
+    {        
+        Destroy(instantiatedPortal);
+        instantiatedPortal = Instantiate(portalPrefab, new Vector3(transform.position.x, portalPrefab.transform.position.y, transform.position.z), Quaternion.identity);       
     }
 }

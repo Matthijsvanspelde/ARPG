@@ -27,25 +27,25 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        ToggleInventoryPanel();
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            ToggleInventoryPanel();
+        }
     }
 
 
-    private void ToggleInventoryPanel()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
+    public void ToggleInventoryPanel()
+    {       
+        if (!inventoryPanel.activeSelf)
         {
-            if (!inventoryPanel.activeSelf)
-            {
-                inventoryPanel.SetActive(true);
-                IsToggled = true;
-            }
-            else
-            {
-                inventoryPanel.SetActive(false);
-                IsToggled = false;
-            }
+            inventoryPanel.SetActive(true);
+            IsToggled = true;
         }
+        else
+        {
+            inventoryPanel.SetActive(false);
+            IsToggled = false;
+        }       
     }
 
     public void AddItem(GameObject selectedItem)
