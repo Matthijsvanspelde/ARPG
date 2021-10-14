@@ -54,17 +54,21 @@ public class Equipment : MonoBehaviour
     private SpriteRenderer rightHand;
     [SerializeField]
     private Sprite defaultRightHand;
-    [Header("Weapon sprites")]
-    [SerializeField]
-    private SpriteRenderer weapon;
-    [SerializeField]
-    private Sprite defaultWeapon;
     [Header("Offhand sprites")]
     [SerializeField]
     private SpriteRenderer offHand;
     [SerializeField]
     private Sprite defaultOffHand;
     private PlayerAttributes playerAttributes;
+
+
+    [Header("Weapon")]
+    [SerializeField]
+    private Transform mainHand;
+    [SerializeField]
+    private GameObject unarmedPrefab;
+    [SerializeField]
+    private GameObject currentMainWeapon;
 
     private void Start()
     {
@@ -102,7 +106,8 @@ public class Equipment : MonoBehaviour
                 rightLeg.sprite = defaultRightLeg;
                 break;
             case EquimentSlotEnum.Weapon:
-                weapon.sprite = defaultWeapon;
+                Destroy(currentMainWeapon);
+                currentMainWeapon = Instantiate(unarmedPrefab, mainHand);
                 break;
             case EquimentSlotEnum.OffHand:
                 offHand.sprite = defaultOffHand;
@@ -154,7 +159,11 @@ public class Equipment : MonoBehaviour
                     rightLeg.sprite = spriteResolver.sprite;
                     break;
                 case SpriteEnum.Weapon:
-                    weapon.sprite = spriteResolver.sprite;
+                    Destroy(currentMainWeapon);
+                    currentMainWeapon = Instantiate(item, mainHand);
+                    currentMainWeapon.GetComponent<Item>().enabled = false;
+                    currentMainWeapon.GetComponent<Collider>().enabled = false;
+                    currentMainWeapon.GetComponent<SpriteRenderer>().sortingOrder = helm.sortingOrder;
                     break;
                 case SpriteEnum.Offhand:
                     offHand.sprite = spriteResolver.sprite;

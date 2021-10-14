@@ -10,6 +10,7 @@ public class PlayerStatsScriptableObject : ScriptableObject
     public int maxExperience = 100;
     public float attackSpeed = 2f;
     public float attackDamage = 4;
+    public float attackRange = 0.8f;
     public int strength = 1;
     public int dexterity = 1;
     public int armor = 1;

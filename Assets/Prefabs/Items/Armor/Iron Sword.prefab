@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5022954769824459299}
   - component: {fileID: 914891940197958550}
   - component: {fileID: 1711896839965135729}
+  - component: {fileID: 6916158859471243522}
+  - component: {fileID: -1083341730919033286}
   m_Layer: 10
   m_Name: Iron Sword
   m_TagString: Item
@@ -91,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0
   attackDamage: 3
+  attackRange: 0
 --- !u!212 &914891940197958550
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -155,6 +158,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1989582, y: 0.437, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6916158859471243522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5105843026319306304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf70702b48776141b6850ff35dd676a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1083341730919033286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5105843026319306304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a8b40b6a10a86a47874d3bb18cddb1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7753085427379215839
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001062, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_Enabled

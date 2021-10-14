@@ -25,6 +25,8 @@ public class PlayerAttributes : MonoBehaviour
     [SerializeField]
     private TMP_Text attackSpeedText;
     [SerializeField]
+    private TMP_Text attackRangeText;
+    [SerializeField]
     private Animator animator;
     [SerializeField]
     private TMP_Text levelPopupText;
@@ -33,6 +35,7 @@ public class PlayerAttributes : MonoBehaviour
     private int armorBonus;
     private float attackSpeedBonus;
     private float attackDamageBonus;
+    private float attackRangeBonus;
     private int strengthBonus;
     private int dexterityBonus;
 
@@ -42,6 +45,7 @@ public class PlayerAttributes : MonoBehaviour
     public float AttackDamageBonus { get => attackDamageBonus; private set => attackDamageBonus = value; }
     public int StrengthBonus { get => strengthBonus; private set => strengthBonus = value; }
     public int DexterityBonus { get => dexterityBonus; private set => dexterityBonus = value; }
+    public float AttackRangeBonus { get => attackRangeBonus; private set => attackRangeBonus = value; }
 
     private void Awake()
     {
@@ -77,6 +81,7 @@ public class PlayerAttributes : MonoBehaviour
         armorText.text = (attributes.armor + armorBonus).ToString();
         attackDamageText.text = (attributes.attackDamage + attackDamageBonus + ((float)(attributes.strength + strengthBonus) / 100)).ToString();
         attackSpeedText.text = (attributes.attackSpeed + AttackSpeedBonus + (((float)attributes.dexterity + dexterityBonus) / 100)).ToString();
+        attackRangeText.text = (attributes.attackRange + attackRangeBonus).ToString();
     }
 
     private void LevelUp() 
@@ -114,6 +119,7 @@ public class PlayerAttributes : MonoBehaviour
             WeaponItem weaponItem = item.GetComponent<WeaponItem>();
             attackDamageBonus += weaponItem.attackDamage;
             attackSpeedBonus += weaponItem.attackSpeed;
+            attackRangeBonus += weaponItem.attackRange;
         }
         SetAttributeText();
     }
@@ -131,6 +137,7 @@ public class PlayerAttributes : MonoBehaviour
             WeaponItem weaponItem = item.GetComponent<WeaponItem>();
             attackDamageBonus -= weaponItem.attackDamage;
             attackSpeedBonus -= weaponItem.attackSpeed;
+            attackRangeBonus -= weaponItem.attackRange;
         }
         SetAttributeText();
     }

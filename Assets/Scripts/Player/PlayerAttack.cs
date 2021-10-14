@@ -7,16 +7,18 @@ using UnityEngine.EventSystems;
 public class PlayerAttack : MonoBehaviour
 {
     private NavMeshAgent agent;
-    [SerializeField]
-    private float stoppingDistance = 0.8f;
-    [SerializeField]
-    PlayerAttributes playerAttributes;
+    private float attackRange;
+    public PlayerAttributes playerAttributes;
     private GameObject target;
     private float attackTimer = 0f;
     private bool hasClicked = false;
     private Animator animator;
-    private EnemyAI enemyAI;
-    
+    public EnemyAI enemyAI;
+
+    public float AttackTimer { get => attackTimer; private set => attackTimer = value; }
+    public bool HasClicked { get => hasClicked; private set => hasClicked = value; }
+    public GameObject Target { get => target; private set => target = value; }
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +32,6 @@ public class PlayerAttack : MonoBehaviour
     {
         TargetEnemy();
         SwingTimer();
-        Attack();
         WalkToTarget();
     }
 
@@ -46,7 +47,8 @@ public class PlayerAttack : MonoBehaviour
                 animator.SetBool("isWalking", true);
                 target = hit.transform.gameObject;
                 enemyAI = hit.transform.gameObject.GetComponent<EnemyAI>();
-                agent.stoppingDistance = stoppingDistance;
+                attackRange = playerAttributes.attributes.attackRange + playerAttributes.AttackRangeBonus;
+                agent.stoppingDistance = attackRange;
                 SetSpriteDirection();
                 enemyAI.SetHealthBar();
                 enemyAI.healthBar.SetNameTag(target.name);
@@ -86,22 +88,12 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void Attack() 
+    public void Attack() 
     {
-        
-        if (IsAtTarget() && attackTimer <= 0 && hasClicked)
-        {
-            hasClicked = false;
-            var damage = playerAttributes.attributes.attackDamage + playerAttributes.AttackDamageBonus + ((float)(playerAttributes.attributes.strength + playerAttributes.StrengthBonus) / 100);
-            enemyAI.TakeDamage(damage);
-            animator.SetTrigger("swing");
-            attackTimer = playerAttributes.attributes.attackSpeed + playerAttributes.AttackSpeedBonus - ((float)(playerAttributes.attributes.dexterity + playerAttributes.DexterityBonus) / 100);
-            agent.destination = transform.position;
-            if (enemyAI.isDead)
-            {
-                enemyAI.healthBar.SetVisibility(false);
-            }                     
-        }
+        hasClicked = false;        
+        animator.SetTrigger("swing");
+        attackTimer = playerAttributes.attributes.attackSpeed + playerAttributes.AttackSpeedBonus - ((float)(playerAttributes.attributes.dexterity + playerAttributes.DexterityBonus) / 100);
+        agent.destination = transform.position;                           
     }
 
     private void SwingTimer() 
@@ -112,12 +104,13 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private bool IsAtTarget() 
+    public bool IsAtTarget() 
     {
         if (target != null)
         {
             float dist = Vector3.Distance(target.transform.position, transform.position);
-            if (dist <= stoppingDistance)
+            Debug.Log(dist);
+            if (dist <= attackRange)
             {
                 return true;
             }

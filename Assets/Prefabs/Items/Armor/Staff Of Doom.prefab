@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1484997402692366489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7979321325391164267}
+  m_Layer: 10
+  m_Name: Projectile Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7979321325391164267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484997402692366489}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.647, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4525382160970955190}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5105843026319306304
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,10 +44,10 @@ GameObject:
   - component: {fileID: 5022954769824459299}
   - component: {fileID: 914891940197958550}
   - component: {fileID: 1711896839965135729}
-  - component: {fileID: 3096944090041360313}
-  - component: {fileID: -4336378662993675116}
+  - component: {fileID: 3281792490536514549}
+  - component: {fileID: -7804501158301473765}
   m_Layer: 10
-  m_Name: Dagger
+  m_Name: Staff Of Doom
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +66,7 @@ Transform:
   m_Children:
   - {fileID: 2388727174669711233}
   - {fileID: 6907994226840645214}
+  - {fileID: 7979321325391164267}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,12 +82,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac16bbd0166f644cbf73606324d99ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 11400000, guid: b4c9a2236ec0e204796539abd2d9ef86, type: 2}
-  rarity: {fileID: 11400000, guid: 62e476dba34a839438155c117e57f33e, type: 2}
-  description: Dagger
+  itemPrefab: {fileID: 11400000, guid: f3376d133697f4641b494a8d4e001c25, type: 2}
+  rarity: {fileID: 11400000, guid: 7e5788f12329e644497e0826d71f70c8, type: 2}
+  description: Staff Of Doom
   itemCategory: 3
   stackSize: 0
-  icon: {fileID: 21300000, guid: 3477e0e74e60dec4d9e2367cf97c8d63, type: 3}
+  icon: {fileID: 21300000, guid: 0146283c63e92724ca4263045a735730, type: 3}
   dropChance: 40
   itemName: {fileID: 2388727174461211263}
   canvas: {fileID: 2388727174669711237}
@@ -93,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0
   attackDamage: 1
-  attackRange: 0
+  attackRange: 8
 --- !u!212 &914891940197958550
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,12 +165,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4efa80ae996066345bbad6ab1c3fde49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9cd7c9e658ad8b74b96112daa3939cae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.91, y: 5.72}
+  m_Size: {x: 1.729, y: 0.302}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -156,9 +187,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.342, y: 0.3612123, z: 0.2}
-  m_Center: {x: 0, y: 0.058606207, z: 0}
---- !u!114 &3096944090041360313
+  m_Size: {x: 1.729, y: 0.302, z: 0.2}
+  m_Center: {x: -0.43224996, y: 0, z: 0}
+--- !u!114 &3281792490536514549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,10 +198,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5105843026319306304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf70702b48776141b6850ff35dd676a, type: 3}
+  m_Script: {fileID: 11500000, guid: e9f20d63823b47340a16c3a33cfc23df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4336378662993675116
+  projectile: {fileID: 4708551190672905249, guid: a67229dcd5abcb64284e39e8194c1d9b, type: 3}
+  projectileStart: {fileID: 7979321325391164267}
+--- !u!114 &-7804501158301473765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: 11
-  sprite: {fileID: 21300000, guid: 4efa80ae996066345bbad6ab1c3fde49, type: 3}
+  sprite: {fileID: 21300000, guid: 9cd7c9e658ad8b74b96112daa3939cae, type: 3}
 --- !u!1001 &6797634599114938918
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1447374890642174822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5557140150048815207}
+  m_Layer: 10
+  m_Name: Sprite Objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5557140150048815207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447374890642174822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1065670354376370126}
+  m_Father: {fileID: 4525382160970955190}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5105843026319306304
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,15 +40,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4525382160970955190}
-  - component: {fileID: 8689716897286922251}
-  - component: {fileID: 6611157174245882792}
-  - component: {fileID: 5022954769824459299}
+  - component: {fileID: 1342697630391992488}
+  - component: {fileID: 5979195175528232585}
   - component: {fileID: 914891940197958550}
   - component: {fileID: 1711896839965135729}
-  - component: {fileID: 3096944090041360313}
-  - component: {fileID: -4336378662993675116}
   m_Layer: 10
-  m_Name: Dagger
+  m_Name: Wizard Hat
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,11 +63,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2388727174669711233}
-  - {fileID: 6907994226840645214}
+  - {fileID: 5557140150048815207}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8689716897286922251
+--- !u!114 &1342697630391992488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,16 +79,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac16bbd0166f644cbf73606324d99ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 11400000, guid: b4c9a2236ec0e204796539abd2d9ef86, type: 2}
+  itemPrefab: {fileID: 11400000, guid: 3aa7969d2dc334c48809ae91a48bd003, type: 2}
   rarity: {fileID: 11400000, guid: 62e476dba34a839438155c117e57f33e, type: 2}
-  description: Dagger
+  description: Wizard hat
   itemCategory: 3
   stackSize: 0
-  icon: {fileID: 21300000, guid: 3477e0e74e60dec4d9e2367cf97c8d63, type: 3}
-  dropChance: 40
+  icon: {fileID: 21300000, guid: 23756db1fc5727d4e8ea3e9367648833, type: 3}
+  dropChance: 10
   itemName: {fileID: 2388727174461211263}
   canvas: {fileID: 2388727174669711237}
---- !u!114 &6611157174245882792
+--- !u!114 &5979195175528232585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,28 +100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1777cfc4c28834e92b16092c922b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipmentCategory: 7
+  equipmentCategory: 0
   sprites:
-  - {fileID: 8860364702203919052}
-  strength: 5
-  dexterity: 10
-  health: 2
-  armor: 0
---- !u!114 &5022954769824459299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5105843026319306304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca86b9c08460874ab3b965b25c8c9f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSpeed: 0
-  attackDamage: 1
-  attackRange: 0
+  - {fileID: 5231418463298981517}
+  strength: 1
+  dexterity: 0
+  health: 1
+  armor: 4
 --- !u!212 &914891940197958550
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,12 +147,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4efa80ae996066345bbad6ab1c3fde49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b55cf9065d9c0549b9964f92329a491, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.91, y: 5.72}
+  m_Size: {x: 10.24, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -156,33 +169,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.342, y: 0.3612123, z: 0.2}
-  m_Center: {x: 0, y: 0.058606207, z: 0}
---- !u!114 &3096944090041360313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5105843026319306304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf70702b48776141b6850ff35dd676a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-4336378662993675116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5105843026319306304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a8b40b6a10a86a47874d3bb18cddb1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &7753085427379215839
+  m_Size: {x: 0.785, y: 0.62600005, z: 0.2}
+  m_Center: {x: 0, y: 0.4695, z: 0}
+--- !u!1 &5231418463298981517
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,74 +179,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6907994226840645214}
+  - component: {fileID: 1065670354376370126}
+  - component: {fileID: 5035647248880183184}
   m_Layer: 10
-  m_Name: Sprite Objects
+  m_Name: Helm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6907994226840645214
+--- !u!4 &1065670354376370126
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7753085427379215839}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4563111383957338328}
-  m_Father: {fileID: 4525382160970955190}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8860364702203919052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4563111383957338328}
-  - component: {fileID: 5982575204516115418}
-  m_Layer: 10
-  m_Name: Sword
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4563111383957338328
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8860364702203919052}
+  m_GameObject: {fileID: 5231418463298981517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6907994226840645214}
+  m_Father: {fileID: 5557140150048815207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5982575204516115418
+--- !u!114 &5035647248880183184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8860364702203919052}
+  m_GameObject: {fileID: 5231418463298981517}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e7e390800bb0d3459684d3990893d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  category: 11
-  sprite: {fileID: 21300000, guid: 4efa80ae996066345bbad6ab1c3fde49, type: 3}
+  category: 0
+  sprite: {fileID: 21300000, guid: 3b55cf9065d9c0549b9964f92329a491, type: 3}
 --- !u!1001 &6797634599114938918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -287,7 +245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001059, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001062, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_Enabled
@@ -363,7 +321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001063, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.937
+      value: 1.159
       objectReference: {fileID: 0}
     - target: {fileID: 9182973860598001063, guid: 70d6bf9c4f033074aabdd52e8b668bb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

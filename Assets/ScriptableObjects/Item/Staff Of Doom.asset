@@ -9,17 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5397b2c0f00935744b507eb225954a5c, type: 3}
-  m_Name: PlayerData
+  m_Script: {fileID: 11500000, guid: 39ebd5395737cee42acedd9e09802a17, type: 3}
+  m_Name: Staff Of Doom
   m_EditorClassIdentifier: 
-  currentHealth: 100
-  maxHealth: 100
-  level: 1
-  currentExperience: 40
-  maxExperience: 100
-  attackSpeed: 1
-  attackDamage: 1
-  attackRange: 1.2
-  strength: 1
-  dexterity: 1
-  armor: 1
+  item: {fileID: 5105843026319306304, guid: 9c39666902ca3754898e7ceb235051fb, type: 3}

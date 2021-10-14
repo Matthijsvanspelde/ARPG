@@ -135,6 +135,7 @@ public class EnemyAI : MonoBehaviour
             player.EarnExperience(experienceReward);
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<BoxCollider>().enabled = false;
+            healthBar.SetVisibility(false);
         }
     }
 
