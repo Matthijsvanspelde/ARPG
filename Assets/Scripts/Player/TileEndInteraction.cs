@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -14,9 +11,11 @@ public class TileEndInteraction : MonoBehaviour
     private bool hasGenerated = false;
     [SerializeField]
     private Animator animator;
+    private TargetRange targetRange;
 
     private void Awake()
     {
+        targetRange = GetComponent<TargetRange>();
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -29,7 +28,7 @@ public class TileEndInteraction : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        if (IsAtTarget() && !hasGenerated)
+        if (targetRange.IsAtTarget(target, 1.5f) && !hasGenerated)
         {
             animator.SetTrigger("Fade");
             tileGenerator = GameObject.Find("Tile Builder").GetComponent<TileGenerator>();
@@ -59,18 +58,5 @@ public class TileEndInteraction : MonoBehaviour
                 target = null;
             }
         }
-    }
-
-    private bool IsAtTarget()
-    {
-        if (target != null)
-        {
-            float dist = Vector3.Distance(target.transform.position, transform.position);
-            if (dist <= 1.5)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }

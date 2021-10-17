@@ -25,7 +25,7 @@ public class RangedAttack : MonoBehaviour
     {
         if (playerAttack != null)
         {
-            if (playerAttack.IsAtTarget() && playerAttack.AttackTimer <= 0 && playerAttack.HasClicked)
+            if (playerAttack.TargetRange.IsAtTarget(playerAttack.Target, playerAttack.AttackRange) && playerAttack.AttackTimer <= 0 && playerAttack.HasClicked)
             {
                 playerAttack.Attack();
                 GameObject projectile = Instantiate(this.projectile, projectileStart.position, Quaternion.identity);

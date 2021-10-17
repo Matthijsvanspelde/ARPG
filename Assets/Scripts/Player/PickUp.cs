@@ -10,9 +10,11 @@ public class PickUp : MonoBehaviour
     private GameObject itemTarget;
     private GameObject itemToSave;
     private Item itemSelected;
+    private TargetRange targetRange;
 
     void Start()
     {
+        targetRange = GetComponent<TargetRange>();
         inventory = GetComponent<Inventory>();
         agent = GetComponent<NavMeshAgent>();
     }
@@ -56,24 +58,10 @@ public class PickUp : MonoBehaviour
 
     private void PickUpItem() 
     {
-        if (itemTarget != null && IsAtTarget())
+        if (itemTarget != null && targetRange.IsAtTarget(itemTarget, 0.5f))
         {
             inventory.AddItem(itemToSave);
             Destroy(itemTarget);
         }
-    }
-
-    private bool IsAtTarget()
-    {
-        if (itemTarget != null)
-        {
-            float dist = Vector3.Distance(itemTarget.transform.position, transform.position);
-            
-            if (dist <= 0.5)
-            {               
-                return true;
-            }
-        }
-        return false;
     }
 }

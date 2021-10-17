@@ -14,15 +14,19 @@ public class PlayerAttack : MonoBehaviour
     private bool hasClicked = false;
     private Animator animator;
     public EnemyAI enemyAI;
+    private TargetRange targetRange;
 
     public float AttackTimer { get => attackTimer; private set => attackTimer = value; }
     public bool HasClicked { get => hasClicked; private set => hasClicked = value; }
     public GameObject Target { get => target; private set => target = value; }
+    public TargetRange TargetRange { get => targetRange; private set => targetRange = value; }
+    public float AttackRange { get => attackRange; private set => attackRange = value; }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        targetRange = GetComponent<TargetRange>();
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();   
     }
@@ -81,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
         if (target != null)
         {
             agent.destination = target.transform.position;
-            if (IsAtTarget())
+            if (targetRange.IsAtTarget(target, attackRange))
             {
                 agent.destination = transform.position;
             }
@@ -102,20 +106,6 @@ public class PlayerAttack : MonoBehaviour
         {
             attackTimer -= Time.deltaTime;
         }
-    }
-
-    public bool IsAtTarget() 
-    {
-        if (target != null)
-        {
-            float dist = Vector3.Distance(target.transform.position, transform.position);
-            Debug.Log(dist);
-            if (dist <= attackRange)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 
     private void SetSpriteDirection()

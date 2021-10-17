@@ -20,7 +20,7 @@ public class MeleeAttack : MonoBehaviour
     {
         if (playerAttack != null)
         {
-            if (playerAttack.IsAtTarget() && playerAttack.AttackTimer <= 0 && playerAttack.HasClicked)
+            if (playerAttack.TargetRange.IsAtTarget(playerAttack.Target, playerAttack.AttackRange) && playerAttack.AttackTimer <= 0 && playerAttack.HasClicked)
             {
                 playerAttack.Attack();
                 var damage = playerAttack.playerAttributes.attributes.attackDamage + playerAttack.playerAttributes.AttackDamageBonus + ((float)(playerAttack.playerAttributes.attributes.strength + playerAttack.playerAttributes.StrengthBonus) / 100);

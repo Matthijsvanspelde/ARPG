@@ -11,9 +11,11 @@ public class NPCInteraction : MonoBehaviour
     private GameObject target;
     private NavMeshAgent agent;
     private bool isInteracting = false;
+    private TargetRange targetRange;
 
     private void Start()
     {
+        targetRange = GetComponent<TargetRange>();
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -57,7 +59,7 @@ public class NPCInteraction : MonoBehaviour
 
     private void Interact() 
     {
-        if (IsAtTarget() && !isInteracting)
+        if (targetRange.IsAtTarget(target, stoppingDistance + 0.1f) && !isInteracting)
         {
             isInteracting = true;
             target.GetComponent<Dialogue>().StartDialogue(gameObject);
@@ -67,20 +69,5 @@ public class NPCInteraction : MonoBehaviour
     public void ChooseOption() 
     { 
         
-    }
-
-    private bool IsAtTarget()
-    {
-        if (target != null)
-        {
-            
-            float dist = Vector3.Distance(target.transform.position, transform.position);
-            Debug.Log(dist);
-            if (dist <= stoppingDistance + 0.1)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }

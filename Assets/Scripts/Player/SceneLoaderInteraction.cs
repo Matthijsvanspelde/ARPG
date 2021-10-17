@@ -6,9 +6,11 @@ public class SceneLoaderInteraction : MonoBehaviour
 {
     private NavMeshAgent agent;
     private GameObject target;
+    private TargetRange targetRange;
 
     void Start()
     {
+        targetRange = GetComponent<TargetRange>();
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -20,7 +22,7 @@ public class SceneLoaderInteraction : MonoBehaviour
 
     private void GoToNewScene() 
     {
-        if (IsAtTarget())
+        if (targetRange.IsAtTarget(target, 1.1f))
         {
             target.GetComponent<SceneLoader>().LoadScene();
         }
@@ -43,18 +45,5 @@ public class SceneLoaderInteraction : MonoBehaviour
                 target = null;
             }
         }
-    }
-
-    private bool IsAtTarget()
-    {
-        if (target != null)
-        {
-            float dist = Vector3.Distance(target.transform.position, transform.position);
-            if (dist <= 1.1)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }
