@@ -48,7 +48,6 @@ public class PlayerAttack : MonoBehaviour
         {          
             if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Hittable") && !EventSystem.current.IsPointerOverGameObject())
             {
-                animator.SetBool("isWalking", true);
                 target = hit.transform.gameObject;
                 hittable = hit.transform.gameObject.GetComponent<HittableHealth>();
                 attackRange = playerAttributes.attributes.attackRange + playerAttributes.AttackRangeBonus;

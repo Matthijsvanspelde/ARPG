@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5397b2c0f00935744b507eb225954a5c, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  currentHealth: 121.84
-  maxHealth: 150
-  level: 3
-  currentExperience: 245
-  maxExperience: 400
+  currentHealth: 100
+  maxHealth: 100
+  level: 1
+  currentExperience: 20
+  maxExperience: 100
   attackSpeed: 1
   attackDamage: 1
   attackRange: 1.2
-  strength: 3
-  dexterity: 3
+  strength: 1
+  dexterity: 1
   armor: 1

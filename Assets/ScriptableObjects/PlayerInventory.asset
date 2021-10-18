@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770c6b8126611b546aaa3bf66ffe2670, type: 3}
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
-  gold: 23
+  gold: 0
