@@ -632,6 +632,7 @@ GameObject:
   - component: {fileID: 223142983}
   - component: {fileID: 555071605}
   - component: {fileID: 555071606}
+  - component: {fileID: 1578855418}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -731,7 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttributes: {fileID: 681741393}
-  enemyAI: {fileID: 0}
+  hittable: {fileID: 0}
 --- !u!114 &232998636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,6 +931,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9cc69f70d6408542aad212ec6bef9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1578855418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708094070109168880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7590f01369337664fa45714eaf484fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2527827920102720090

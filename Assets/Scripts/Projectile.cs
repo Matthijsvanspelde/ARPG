@@ -44,9 +44,9 @@ public class Projectile : MonoBehaviour
             other.GetComponent<PlayerAttributes>().TakeDamage(damage);
             Destroy(gameObject);
         }
-        else if (other.CompareTag("Enemy"))
+        else if (other.CompareTag("Hittable"))
         {
-            other.GetComponent<EnemyAI>().TakeDamage(damage);
+            other.GetComponent<HittableHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
         else if (other.CompareTag("Wall"))

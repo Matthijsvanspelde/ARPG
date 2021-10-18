@@ -6,9 +6,10 @@ public class TargetRange : MonoBehaviour
     {
         if (target != null)
         {
+            float offset = target.GetComponent<Collider>().bounds.size.x;
             float dist = Vector3.Distance(target.transform.position, transform.position);
 
-            if (dist <= range)
+            if (dist <= range + offset)
             {
                 return true;
             }

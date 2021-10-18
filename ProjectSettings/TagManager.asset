@@ -17,6 +17,7 @@ TagManager:
   - SpawnPoint
   - WallDetector
   - LootContainer
+  - Hittable
   layers:
   - Default
   - TransparentFX

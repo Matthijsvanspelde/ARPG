@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     private float attackTimer = 0f;
     private bool hasClicked = false;
     private Animator animator;
-    public EnemyAI enemyAI;
+    public HittableHealth hittable;
     private TargetRange targetRange;
 
     public float AttackTimer { get => attackTimer; private set => attackTimer = value; }
@@ -46,27 +46,27 @@ public class PlayerAttack : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButton(0))
         {          
-            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Enemy") && !EventSystem.current.IsPointerOverGameObject())
+            if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Hittable") && !EventSystem.current.IsPointerOverGameObject())
             {
                 animator.SetBool("isWalking", true);
                 target = hit.transform.gameObject;
-                enemyAI = hit.transform.gameObject.GetComponent<EnemyAI>();
+                hittable = hit.transform.gameObject.GetComponent<HittableHealth>();
                 attackRange = playerAttributes.attributes.attackRange + playerAttributes.AttackRangeBonus;
                 agent.stoppingDistance = attackRange;
                 SetSpriteDirection();
-                enemyAI.SetHealthBar();
-                enemyAI.healthBar.SetNameTag(target.name);
-                enemyAI.healthBar.SetVisibility(true);
+                hittable.SetHealthBar();
+                hittable.healthBar.SetNameTag(target.name);
+                hittable.healthBar.SetVisibility(true);
                 if (attackTimer <= 0)
                 {
                     hasClicked = true;
                 }
             }
-            else 
+            else
             {
                 if (target != null)
                 {
-                    enemyAI.healthBar.SetVisibility(false);
+                    hittable.healthBar.SetVisibility(false);
                 }               
                 target = null;
             }
@@ -96,7 +96,7 @@ public class PlayerAttack : MonoBehaviour
     {
         hasClicked = false;        
         animator.SetTrigger("swing");
-        attackTimer = playerAttributes.attributes.attackSpeed + playerAttributes.AttackSpeedBonus - ((float)(playerAttributes.attributes.dexterity + playerAttributes.DexterityBonus) / 100);
+        attackTimer = playerAttributes.attributes.attackSpeed - playerAttributes.AttackSpeedBonus - ((float)(playerAttributes.attributes.dexterity + playerAttributes.DexterityBonus) / 100);
         agent.destination = transform.position;                           
     }
 

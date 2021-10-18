@@ -80,7 +80,7 @@ public class PlayerAttributes : MonoBehaviour
         dexterityText.text = (attributes.dexterity + dexterityBonus).ToString();
         armorText.text = (attributes.armor + armorBonus).ToString();
         attackDamageText.text = (attributes.attackDamage + attackDamageBonus + ((float)(attributes.strength + strengthBonus) / 100)).ToString();
-        attackSpeedText.text = (attributes.attackSpeed + AttackSpeedBonus + (((float)attributes.dexterity + dexterityBonus) / 100)).ToString();
+        attackSpeedText.text = (attributes.attackSpeed - AttackSpeedBonus - (((float)attributes.dexterity + dexterityBonus) / 100)).ToString();
         attackRangeText.text = (attributes.attackRange + attackRangeBonus).ToString();
     }
 

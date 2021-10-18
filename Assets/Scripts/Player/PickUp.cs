@@ -58,7 +58,7 @@ public class PickUp : MonoBehaviour
 
     private void PickUpItem() 
     {
-        if (itemTarget != null && targetRange.IsAtTarget(itemTarget, 0.5f))
+        if (itemTarget != null && targetRange.IsAtTarget(itemTarget, 0))
         {
             inventory.AddItem(itemToSave);
             Destroy(itemTarget);

@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 0
-  attackDamage: 1
+  attackDamage: 3
   attackRange: 8
 --- !u!212 &914891940197958550
 SpriteRenderer:

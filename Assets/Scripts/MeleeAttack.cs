@@ -24,8 +24,8 @@ public class MeleeAttack : MonoBehaviour
             {
                 playerAttack.Attack();
                 var damage = playerAttack.playerAttributes.attributes.attackDamage + playerAttack.playerAttributes.AttackDamageBonus + ((float)(playerAttack.playerAttributes.attributes.strength + playerAttack.playerAttributes.StrengthBonus) / 100);
-                playerAttack.enemyAI.TakeDamage(damage);
+                playerAttack.hittable.TakeDamage(damage);
             }
-        }        
+        }
     }
 }

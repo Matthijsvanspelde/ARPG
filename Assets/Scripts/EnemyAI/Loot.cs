@@ -30,7 +30,7 @@ public class Loot : MonoBehaviour
     public void DropGold() 
     {       
         int goldAmount = Random.Range(minGoldDrop, maxGoldDrop);
-        GameObject goldObject = Instantiate(goldPrefab, transform);
+        GameObject goldObject = Instantiate(goldPrefab, transform.position, Quaternion.identity);
         goldObject.GetComponent<Gold>().goldAmount = goldAmount;
     }
 }

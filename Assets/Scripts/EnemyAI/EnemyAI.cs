@@ -6,13 +6,8 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [Header("Stats")]
-    public float health;
-    [SerializeField]
-    public float maxHealth = 8;   
     public float attackSpeed = 2;
     public float attackDamage = 2;
-    [SerializeField]
-    private int experienceReward = 5;
 
     [Header("AI")]
     public float wanderRadius;
@@ -20,14 +15,10 @@ public class EnemyAI : MonoBehaviour
     public float attackRange = 0.8f;
     private float timer;
     public float attackTimer = 0f;
-    public EnemyHealthBar healthBar;
-    private Loot loot;
 
     public NavMeshAgent agent;   
     public FieldOfView fov;
     public Animator animator;
-    private HitFeedback hitFeedback;
-    private DamageNumber damageNumber;
     [SerializeField]
     private Transform rig;
 
@@ -38,18 +29,9 @@ public class EnemyAI : MonoBehaviour
 
     public PlayerAttributes player;
 
-    private void Awake()
-    {
-        healthBar = GameObject.Find("Canvas/Enemy Health Bar").GetComponent<EnemyHealthBar>();
-        healthBar.SetMaxValue(maxHealth);
-        health = maxHealth;
-        healthBar.SetVisibility(false);
-    }
 
     private void Start()
     {
-        damageNumber = GetComponentInChildren<DamageNumber>();
-        hitFeedback = GetComponent<HitFeedback>();
         player = GameObject.Find("Player").GetComponent<PlayerAttributes>();
     }
 
@@ -59,7 +41,6 @@ public class EnemyAI : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
         fov = GetComponent<FieldOfView>();
-        loot = GetComponent<Loot>();
         timer = wanderTimer;
     }
 
@@ -113,35 +94,6 @@ public class EnemyAI : MonoBehaviour
                 animator.SetBool("isWalking", false);
             }
         }        
-    }
-
-    public void TakeDamage(float damage) 
-    {
-        health -= damage;
-        hitFeedback.Flash();
-        damageNumber.Create(damage);
-        SetHealthBar();
-        if (health <= 0)
-        {
-            if (animator != null)
-            {
-                animator.SetTrigger("dead");
-            }          
-            isWandering = false;
-            isAttacking = false;
-            isDead = true;           
-            loot.DropLoot();
-            loot.DropGold();
-            player.EarnExperience(experienceReward);
-            GetComponent<NavMeshAgent>().enabled = false;
-            GetComponent<BoxCollider>().enabled = false;
-            healthBar.SetVisibility(false);
-        }
-    }
-
-    public void SetHealthBar() 
-    {       
-        healthBar.SetCurrentValue(health);
     }
 
     private static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)

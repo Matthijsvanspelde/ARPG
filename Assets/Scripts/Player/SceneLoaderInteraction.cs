@@ -22,7 +22,7 @@ public class SceneLoaderInteraction : MonoBehaviour
 
     private void GoToNewScene() 
     {
-        if (targetRange.IsAtTarget(target, 1.1f))
+        if (targetRange.IsAtTarget(target, 0))
         {
             target.GetComponent<SceneLoader>().LoadScene();
         }
