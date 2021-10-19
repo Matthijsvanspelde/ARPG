@@ -37,11 +37,11 @@ public class NPCInteraction : MonoBehaviour
                 target = hit.transform.gameObject;
                 agent.stoppingDistance = stoppingDistance;
             }
-            else
+            else if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Ground") && !EventSystem.current.IsPointerOverGameObject())
             {
                 if (target != null)
                 {
-                    target.GetComponent<Dialogue>().EndDialogue();
+                    target.GetComponent<QuestGiver>().CloseQuestWindow();
                 }               
                 target = null;
                 isInteracting = false;
@@ -62,7 +62,7 @@ public class NPCInteraction : MonoBehaviour
         if (targetRange.IsAtTarget(target, stoppingDistance + 0.1f) && !isInteracting)
         {
             isInteracting = true;
-            target.GetComponent<Dialogue>().StartDialogue(gameObject);
+            target.GetComponent<QuestGiver>().OpenQuestWindow(gameObject);
         }
     }
 
