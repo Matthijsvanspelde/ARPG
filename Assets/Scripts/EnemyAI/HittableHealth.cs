@@ -7,7 +7,7 @@ public class HittableHealth : MonoBehaviour
     public float maxHealth = 8;
     private DamageNumber damageNumber;
     private HitFeedback hitFeedback;
-    private PlayerAttributes player;
+    private GameObject player;
     private Animator animator;
     private Loot loot;
     [SerializeField]
@@ -29,7 +29,7 @@ public class HittableHealth : MonoBehaviour
         loot = GetComponent<Loot>();
         damageNumber = GetComponentInChildren<DamageNumber>();
         hitFeedback = GetComponent<HitFeedback>();
-        player = GameObject.Find("Player").GetComponent<PlayerAttributes>();
+        player = GameObject.Find("Player");
     }
 
     public void TakeDamage(float damage)
@@ -49,13 +49,31 @@ public class HittableHealth : MonoBehaviour
                 enemyAI.isWandering = false;
                 enemyAI.isAttacking = false;
                 enemyAI.isDead = true;
+                CheckQuestGoal();
             }
             GetComponent<BoxCollider>().enabled = false;
             loot.DropLoot();
             loot.DropGold();
-            player.EarnExperience(experienceReward);
+            player.GetComponent<PlayerAttributes>().EarnExperience(experienceReward);
             healthBar.SetVisibility(false);
         }
+    }
+
+    private void CheckQuestGoal() 
+    {
+        foreach (var quest in player.GetComponent<QuestLog>().quests)
+        {
+            if (quest.isActive)
+            {
+                quest.goal.EnemyKilled(enemyAI.enemyType);
+                if (quest.goal.isReached())
+                {
+                    player.GetComponent<PlayerAttributes>().EarnExperience(quest.experienceReward);
+                    quest.Complete();
+                }
+            }           
+        }
+        
     }
 
     public void SetHealthBar()

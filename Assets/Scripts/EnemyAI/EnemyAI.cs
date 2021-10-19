@@ -28,7 +28,7 @@ public class EnemyAI : MonoBehaviour
     public bool isDead = false;
 
     public PlayerAttributes player;
-
+    public EnemyType enemyType;
 
     private void Start()
     {
@@ -131,4 +131,10 @@ public class EnemyAI : MonoBehaviour
         }
         return false;
     }
+}
+
+public enum EnemyType
+{ 
+    goblin,
+    golem
 }

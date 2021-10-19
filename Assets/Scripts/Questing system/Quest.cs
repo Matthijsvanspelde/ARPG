@@ -7,4 +7,11 @@ public class Quest
     public string description;
     public int experienceReward;
     public int goldReward;
+
+    public QuestGoal goal;
+
+    internal void Complete()
+    {
+        isActive = false;
+    }
 }
