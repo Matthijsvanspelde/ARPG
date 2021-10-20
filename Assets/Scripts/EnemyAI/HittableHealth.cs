@@ -61,7 +61,8 @@ public class HittableHealth : MonoBehaviour
 
     private void CheckQuestGoal() 
     {
-        foreach (var quest in player.GetComponent<QuestLog>().quests)
+        QuestLog questLog = player.GetComponent<QuestLog>();
+        foreach (var quest in questLog.quests)
         {
             if (quest.isActive)
             {
@@ -71,9 +72,10 @@ public class HittableHealth : MonoBehaviour
                     player.GetComponent<PlayerAttributes>().EarnExperience(quest.experienceReward);
                     quest.Complete();
                 }
+                questLog.UpdateQuestLog(quest);
             }           
         }
-        
+       
     }
 
     public void SetHealthBar()

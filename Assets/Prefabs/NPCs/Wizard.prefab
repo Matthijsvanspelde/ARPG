@@ -292,7 +292,7 @@ Transform:
   m_GameObject: {fileID: 705851743480682657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 810827887380470163}
   - {fileID: 8745291483067992585}
@@ -1416,6 +1416,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a8b40b6a10a86a47874d3bb18cddb1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7146606727350167944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6744911866493402135}
+  - component: {fileID: 5638619914289534278}
+  - component: {fileID: 9103420184503178484}
+  - component: {fileID: 7809141594560535308}
+  m_Layer: 0
+  m_Name: Exclamation Mark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6744911866493402135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146606727350167944}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.1940002, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.6, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8331592208923856258}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5638619914289534278
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146606727350167944}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &9103420184503178484
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146606727350167944}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 130ec792744701c4cab214f6f5e326ac, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &7809141594560535308
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146606727350167944}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc184ab79ead2b643b0bb5b9e76039c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8092060290957814675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,7 +1640,7 @@ GameObject:
   - component: {fileID: 8331592208923856258}
   - component: {fileID: 8331592208923856261}
   - component: {fileID: 8331592208923856260}
-  - component: {fileID: 625917940}
+  - component: {fileID: 845862626}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: NPC
@@ -1559,6 +1660,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6228918024742999665}
+  - {fileID: 6744911866493402135}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1573,7 +1675,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 3.2737463, z: 0.35}
+  m_Size: {x: 1.2, y: 3.4, z: 0.35}
   m_Center: {x: 0, y: 1.7501849, z: 0}
 --- !u!114 &8331592208923856260
 MonoBehaviour:
@@ -1587,7 +1689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a89eb29f0b394fc43b41b62bc7b4722b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &625917940
+--- !u!114 &845862626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1596,13 +1698,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 8331592208923856259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8913d1ad2559ff34094de03893aefdcc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e5783dccf1514647b7bf21d5b61ef26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingDialogueNode: {fileID: 11400000, guid: 88f0821203dcac74c830b80653f9ee57, type: 2}
-  dialogueText: {fileID: 0}
-  canvas: {fileID: 0}
-  rig: {fileID: 6228918024742999665}
+  quest:
+    isActive: 0
+    title: Goblin Trouble
+    description: Greetings traveler, head up north to the dungeon and kill some goblins
+      for me.
+    experienceReward: 60
+    goldReward: 25
+    goal:
+      goalType: 0
+      enemyType: 0
+      requiredAmount: 3
+      currentAmount: 0
+    questInfo: {fileID: 0}
+  playerData: {fileID: 0}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  rewardText: {fileID: 0}
+  questWindow: {fileID: 0}
+  exclamationMark: {fileID: 0}
 --- !u!1 &8614894866125640351
 GameObject:
   m_ObjectHideFlags: 0

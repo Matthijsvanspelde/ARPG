@@ -9,18 +9,27 @@ public class QuestGiver : MonoBehaviour
     
     public TMP_Text titleText;
     public TMP_Text descriptionText;
-    public TMP_Text experienceText;
-    public TMP_Text goldText;
+    public TMP_Text rewardText;
 
     public GameObject questWindow;
+    public GameObject exclamationMark;
+
+    private void Awake()
+    {
+        exclamationMark.SetActive(true);
+    }
+
     public void OpenQuestWindow(GameObject player) 
     {
-        questWindow.SetActive(true);
-        this.player = player;
-        titleText.text = quest.title;
-        descriptionText.text = quest.description;
-        experienceText.text = quest.experienceReward.ToString();
-        goldText.text = quest.goldReward.ToString();
+        SetSpriteDirection(player.transform.position.x);
+        if (!quest.isActive)
+        {
+            questWindow.SetActive(true);
+            this.player = player;
+            titleText.text = quest.title;
+            descriptionText.text = quest.description;
+            rewardText.text = quest.experienceReward + " experience, " + quest.goldReward + " gold";
+        }       
     }
 
     public void CloseQuestWindow()
@@ -31,7 +40,21 @@ public class QuestGiver : MonoBehaviour
     public void AcceptQuest() 
     {
         questWindow.SetActive(false);
+        exclamationMark.SetActive(false);
         quest.isActive = true;
-        player.GetComponent<QuestLog>().quests.Add(quest);
+        player.GetComponent<QuestLog>().AddToQuestLog(quest);
+    }
+
+    private void SetSpriteDirection(float playerXPosition)
+    {
+        float relativePosition = playerXPosition - transform.position.x;
+        if (relativePosition > 0f)
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
+        else if (relativePosition < 0f)
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        }
     }
 }

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 [System.Serializable]
 public class Quest
 {
@@ -9,6 +11,8 @@ public class Quest
     public int goldReward;
 
     public QuestGoal goal;
+
+    public GameObject questInfo;
 
     internal void Complete()
     {
