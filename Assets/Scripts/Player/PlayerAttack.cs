@@ -93,9 +93,9 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack() 
     {
-        hasClicked = false;        
-        animator.SetTrigger("swing");
+        hasClicked = false;       
         attackTimer = playerAttributes.attributes.attackSpeed - playerAttributes.AttackSpeedBonus - ((float)(playerAttributes.attributes.dexterity + playerAttributes.DexterityBonus) / 100);
+        animator.SetTrigger("swing");
         agent.destination = transform.position;                           
     }
 
