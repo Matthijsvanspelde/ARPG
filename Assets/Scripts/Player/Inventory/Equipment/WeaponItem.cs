@@ -6,4 +6,7 @@ public class WeaponItem : MonoBehaviour
     public float attackSpeed = 2f;
     public float attackDamage = 4;
     public float attackRange = 0.8f;
+
+    [Header("Sound effect")]
+    public AudioClip attackSound;
 }

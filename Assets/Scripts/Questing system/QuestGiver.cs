@@ -14,21 +14,36 @@ public class QuestGiver : MonoBehaviour
     public GameObject questWindow;
     public GameObject exclamationMark;
 
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip acceptSound;
+
     private void Awake()
     {
-        exclamationMark.SetActive(true);
+        if (!quest.questInfo.isActive)
+        {
+            exclamationMark.SetActive(true);
+        }
+        else
+        {
+            exclamationMark.SetActive(false);
+        }      
+    }
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void OpenQuestWindow(GameObject player) 
     {
         SetSpriteDirection(player.transform.position.x);
-        if (!quest.isActive)
+        if (!quest.questInfo.isActive && !quest.questInfo.isCompleted)
         {
             questWindow.SetActive(true);
             this.player = player;
-            titleText.text = quest.title;
-            descriptionText.text = quest.description;
-            rewardText.text = quest.experienceReward + " experience, " + quest.goldReward + " gold";
+            titleText.text = quest.questInfo.title;
+            descriptionText.text = quest.questInfo.description;
+            rewardText.text = quest.questInfo.experienceReward + " experience, " + quest.questInfo.goldReward + " gold";
         }       
     }
 
@@ -41,8 +56,10 @@ public class QuestGiver : MonoBehaviour
     {
         questWindow.SetActive(false);
         exclamationMark.SetActive(false);
-        quest.isActive = true;
+        quest.questInfo.isActive = true;
         player.GetComponent<QuestLog>().AddToQuestLog(quest);
+        audioSource.clip = acceptSound;
+        audioSource.Play();
     }
 
     private void SetSpriteDirection(float playerXPosition)

@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
     private Animator animator;
     public HittableHealth hittable;
     private TargetRange targetRange;
+    private AudioSource audioSource;
 
     public float AttackTimer { get => attackTimer; private set => attackTimer = value; }
     public bool HasClicked { get => hasClicked; private set => hasClicked = value; }
@@ -26,6 +27,7 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         targetRange = GetComponent<TargetRange>();
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();   
@@ -96,6 +98,8 @@ public class PlayerAttack : MonoBehaviour
         hasClicked = false;       
         attackTimer = playerAttributes.attributes.attackSpeed - playerAttributes.AttackSpeedBonus - ((float)(playerAttributes.attributes.dexterity + playerAttributes.DexterityBonus) / 100);
         animator.SetTrigger("swing");
+        audioSource.clip = GetComponentInChildren<WeaponItem>().attackSound;
+        audioSource.Play();
         agent.destination = transform.position;                           
     }
 

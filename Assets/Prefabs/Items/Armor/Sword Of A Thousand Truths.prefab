@@ -94,6 +94,7 @@ MonoBehaviour:
   attackSpeed: 1
   attackDamage: 14
   attackRange: 0.8
+  attackSound: {fileID: 8300000, guid: 12d4cd7dcc7536f4d9ccafda65ba0e40, type: 3}
 --- !u!212 &914891940197958550
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -29,18 +29,18 @@ public class QuestLog : MonoBehaviour
     public void AddToQuestLog(Quest quest) 
     {
         quests.Add(quest);
-        quest.questInfo = Instantiate(questInfoPrefab, questLogContent.transform);        
+        quest.questInfoUI = Instantiate(questInfoPrefab, questLogContent.transform);        
         UpdateQuestLog(quest);
     }
 
     public void UpdateQuestLog(Quest quest)
     {
-        QuestInfoUI questInfoUI = quest.questInfo.GetComponent<QuestInfoUI>();
-        questInfoUI.TitleText.text = quest.title;
-        questInfoUI.DescriptionText.text = quest.description;
-        questInfoUI.goldRewardText.text = quest.goldReward.ToString();
-        questInfoUI.experienceRewardText.text = quest.experienceReward.ToString();
-        questInfoUI.ProgressText.text = quest.goal.currentAmount + "/" + quest.goal.requiredAmount;
+        QuestInfoUI questInfoUI = quest.questInfoUI.GetComponent<QuestInfoUI>();
+        questInfoUI.TitleText.text = quest.questInfo.title;
+        questInfoUI.DescriptionText.text = quest.questInfo.description;
+        questInfoUI.goldRewardText.text = quest.questInfo.goldReward + " Gold";
+        questInfoUI.experienceRewardText.text = quest.questInfo.experienceReward + " XP";
+        questInfoUI.ProgressText.text = quest.questInfo.goal.currentAmount + "/" + quest.questInfo.goal.requiredAmount;
     }
 
     public void ToggleQuestLog()

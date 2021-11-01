@@ -64,12 +64,12 @@ public class HittableHealth : MonoBehaviour
         QuestLog questLog = player.GetComponent<QuestLog>();
         foreach (var quest in questLog.quests)
         {
-            if (quest.isActive)
+            if (quest.questInfo.isActive && !quest.questInfo.isCompleted)
             {
-                quest.goal.EnemyKilled(enemyAI.enemyType);
-                if (quest.goal.isReached())
+                quest.questInfo.goal.EnemyKilled(enemyAI.enemyType);
+                if (quest.questInfo.goal.isReached())
                 {
-                    player.GetComponent<PlayerAttributes>().EarnExperience(quest.experienceReward);
+                    player.GetComponent<PlayerAttributes>().EarnExperience(quest.questInfo.experienceReward);
                     quest.Complete();
                 }
                 questLog.UpdateQuestLog(quest);
