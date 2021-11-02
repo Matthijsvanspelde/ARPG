@@ -34,13 +34,20 @@ public class QuestLog : MonoBehaviour
     }
 
     public void UpdateQuestLog(Quest quest)
-    {
+    {       
         QuestInfoUI questInfoUI = quest.questInfoUI.GetComponent<QuestInfoUI>();
-        questInfoUI.TitleText.text = quest.questInfo.title;
-        questInfoUI.DescriptionText.text = quest.questInfo.description;
-        questInfoUI.goldRewardText.text = quest.questInfo.goldReward + " Gold";
-        questInfoUI.experienceRewardText.text = quest.questInfo.experienceReward + " XP";
-        questInfoUI.ProgressText.text = quest.questInfo.goal.currentAmount + "/" + quest.questInfo.goal.requiredAmount;
+        if (quest.questInfo.isCompleted)
+        {
+            Destroy(questInfoUI.gameObject);
+        }
+        else
+        {
+            questInfoUI.TitleText.text = quest.questInfo.title;
+            questInfoUI.DescriptionText.text = quest.questInfo.description;
+            questInfoUI.goldRewardText.text = quest.questInfo.goldReward + " Gold";
+            questInfoUI.experienceRewardText.text = quest.questInfo.experienceReward + " XP";
+            questInfoUI.ProgressText.text = quest.questInfo.goal.currentAmount + "/" + quest.questInfo.goal.requiredAmount + " " + quest.questInfo.goal.enemyType + "(s)";
+        }        
     }
 
     public void ToggleQuestLog()

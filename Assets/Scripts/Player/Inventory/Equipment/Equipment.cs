@@ -70,8 +70,13 @@ public class Equipment : MonoBehaviour
     [SerializeField]
     private GameObject currentMainWeapon;
 
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip equipSound;
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         playerAttributes = GetComponent<PlayerAttributes>();
     }
 
@@ -179,12 +184,16 @@ public class Equipment : MonoBehaviour
     {
         SetArmorSprite(item);
         playerAttributes.AddAttributes(item);
+        audioSource.clip = equipSound;
+        audioSource.Play();
     }
 
     public void Unequip(GameObject item)
     {
         SetDefaultSprite(item);
         playerAttributes.RemoveAttributes(item);
+        audioSource.clip = equipSound;
+        audioSource.Play();
     }
 
     public void Swap(GameObject newItem, GameObject oldItem)
@@ -192,5 +201,7 @@ public class Equipment : MonoBehaviour
         SetArmorSprite(newItem);
         playerAttributes.AddAttributes(newItem);
         playerAttributes.RemoveAttributes(oldItem);
+        audioSource.clip = equipSound;
+        audioSource.Play();
     }
 }

@@ -22,5 +22,5 @@ MonoBehaviour:
   goal:
     goalType: 0
     enemyType: 0
-    requiredAmount: 2
+    requiredAmount: 4
     currentAmount: 0

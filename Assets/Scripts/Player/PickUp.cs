@@ -11,9 +11,13 @@ public class PickUp : MonoBehaviour
     private GameObject itemToSave;
     private Item itemSelected;
     private TargetRange targetRange;
+    [SerializeField] private AudioClip goldSound;
+    [SerializeField] private AudioClip pickUpSound;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         targetRange = GetComponent<TargetRange>();
         inventory = GetComponent<Inventory>();
         agent = GetComponent<NavMeshAgent>();
@@ -31,6 +35,8 @@ public class PickUp : MonoBehaviour
         {
             inventory.inventoryData.gold += other.gameObject.GetComponent<Gold>().goldAmount;
             inventory.UpdateGoldText();
+            audioSource.clip = goldSound;
+            audioSource.Play();
             Destroy(other.gameObject);
         }
     }
@@ -61,6 +67,8 @@ public class PickUp : MonoBehaviour
         if (itemTarget != null && targetRange.IsAtTarget(itemTarget, 0))
         {
             inventory.AddItem(itemToSave);
+            audioSource.clip = pickUpSound;
+            audioSource.Play();
             Destroy(itemTarget);
         }
     }
